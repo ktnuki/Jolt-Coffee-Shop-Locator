@@ -22,6 +22,9 @@ CREATE TABLE coffee_shops (
 	shop_name varchar(255) NOT NULL,
 	main_image varchar(255) NOT NULL,
 	website_link varchar(255) NOT NULL,
+	price_range int,
+	rating int,
+	highlights varchar(255),
 	
 	CONSTRAINT pk_shop_id PRIMARY KEY (shop_id)
 );
