@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.JdbcShopDao;
 import com.techelevator.dao.ShopDao;
 import com.techelevator.model.CoffeeShop;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 //TODO: add cross origin(cors) & preauth
+@CrossOrigin
 @RestController
 public class ShopController {
     private ShopDao shopDao;
