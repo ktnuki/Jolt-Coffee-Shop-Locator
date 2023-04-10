@@ -1,7 +1,7 @@
 <template>
   <div class="shoplist">
     <div v-for="shop in this.$store.state.shops" v-bind:key="shop.id">
-    <router-link v-on:click.prevent="setActiveShop()" v-bind:to="{ name: 'shops' }">{{shop.shop + " " + shop.address}}</router-link>
+    <router-link v-on:click.prevent="setActiveShop(), $emit('toggle')" v-bind:to="{ name: 'shops' }">{{shop.shop + " " + shop.address}}</router-link>
     </div>
   </div>
 </template>
