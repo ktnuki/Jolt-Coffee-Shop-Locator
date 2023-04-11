@@ -1,8 +1,13 @@
 <template>
-  <div class="shoplist">
+  <div>
+    <div >
+      <img class="image" src="../assets/generic1.png" alt="">
+    </div> 
+  <div class="shoplist" >
     <div v-for="shop in this.$store.state.shops" v-bind:key="shop.id">
-      <div v-on:click.prevent="setActiveShop(shop), $emit('opensidebar')">{{shop.shop + " " + shop.address}}</div>
+      <div class="shop" v-on:click.prevent="setActiveShop(shop), $emit('opensidebar')">{{shop.shop + " ~ " + shop.address}}</div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -28,5 +33,19 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.shoplist{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px; 
+}
+.shop:hover{
+  color: #683012;
+}
+.image{
+  width: 80%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 </style>

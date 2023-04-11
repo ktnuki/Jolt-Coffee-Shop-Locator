@@ -11,7 +11,7 @@
         shadow
       >
         <div class="px-3 py-2">
-          <h4 id="sidebar-no-header-title">{{ this.$store.state.activeShop.shop }}</h4>
+          <h1 id="sidebar-no-header-title">{{ this.$store.state.activeShop.shop }}</h1>
           <shop-details />
         </div>
       </b-sidebar>
@@ -44,5 +44,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+
+
 </style>
