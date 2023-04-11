@@ -73,6 +73,7 @@ CREATE TABLE shop_address (
 CREATE TABLE favorites (
 	user_id int,
 	shop_id int,
+	favorited boolean,
 	
 	CONSTRAINT pk_user_id_shop_id PRIMARY KEY (user_id, shop_id),
 	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),

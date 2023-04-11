@@ -1,0 +1,76 @@
+/*reset.css*/
+/* RESETS */
+/* This file was created here for potential future usability with Webpack.
+It allows for usage of CSS pre-processors (like SCSS) or post-processors (like PostCSS).
+These stylings will create a background default and are imported in 'src/main.js'.
+Importing it at this level causes it to be automatically added in during the build step. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: 3px dashed #9f5a37;
+}
+html {
+  font: 62.5% / 1.15 sans-serif;
+}
+h1,
+h2 {
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+button {
+  border: 0.2rem solid #9f5a37;;
+  border-radius: 5px;
+  margin: 0;
+  padding: 10px 10px;
+  width: auto;
+  overflow: visible;
+  background: #ddaf6b;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  appearance: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible;
+}
+input[type="text"] {
+  border-radius: 0;
+}
+body {
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto;
+  font: 1.6rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #ddaf6b;
+  color: #9f5a37;
+}
+a:link {
+    color:#9f5a37
+}
+a:visited {
+    color:#9f5a37
+}
+@media screen and (min-width: 620px) {
+  body {
+    font-size: 1.9rem;
+    line-height: 1.31579;
+  }
+}
+/*END RESETS*/

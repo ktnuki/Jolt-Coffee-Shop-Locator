@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//TODO: add cross origin(cors) & preauth
+//TODO: add preauth
+
 @CrossOrigin
 @RestController
 public class ShopController {
