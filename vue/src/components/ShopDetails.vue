@@ -9,7 +9,12 @@
       
     </div>
     <div>Rating: {{ currentshop.rating }} </div>
+    <img id="price" src="../assets/icons8-coffee-bean-48.png" alt=""  v-for="numberOfRating in currentshop.rating"
+            v-bind:key="numberOfRating"/>
     <div>Price: {{ currentshop.price}}  </div>
+    <img id="price" src="../assets/icons8-coffee-cup-64.png" alt=""  v-for="numberOfPrice in currentshop.price"
+            v-bind:key="numberOfPrice"/>
+
     <div><a href=''>{{ currentshop.menulink }}</a></div>
     <div> 
       <h5>{{ "hours" }}</h5>
