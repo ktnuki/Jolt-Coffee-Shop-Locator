@@ -12,9 +12,11 @@ import java.util.List;
 @Component
 public class JdbcShopDao implements ShopDao{
     private final JdbcTemplate jdbcTemplate;
-  public JdbcShopDao(JdbcTemplate jdbcTemplate) {
+    public JdbcShopDao(JdbcTemplate jdbcTemplate) {
       this.jdbcTemplate = jdbcTemplate;
   }
+
+
     @Override
     public List<CoffeeShop> getShopList() {
         List<CoffeeShop> shopsOutput = new ArrayList<>();
