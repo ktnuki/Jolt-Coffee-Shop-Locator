@@ -4,7 +4,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 INSERT INTO coffee_shops (shop_name, main_image, website_link, price_range, rating, highlights, menu_link)
-VALUES ('Third Way Cafe', 'third_way_cafe.png', 'www.thirdwaycafe.org', 1, 4, 'coffee', 'www.thirdwaycafe.org/menu'),
+VALUES ('Third Way Cafe', '../assets/third_way_cafe.png', 'www.thirdwaycafe.org', 1, 4, 'coffee', 'www.thirdwaycafe.org/menu'),
 		('Fox in the Snow Cafe', 'foxinthesnow.jpeg', 'www.foxinthesnow.com', 3, 4, 'coffee, food, dessert, bean, alcohol', 'www.foxinthesnow.com/menus/#menu'),
 		('Pistacia Vera', 'pistacia_vera.png', 'https://www.pistaciavera.com/', 4, 4, 'coffee, food, dessert', 'https://static1.squarespace.com/static/525406e0e4b03949ba5345ea/t/642d8a566dc7e770f0464b5a/1680706135156/FULL+MENU+SPRING+2023+NEW+FINAL+%281%29.pdf'),
 		('One Line Coffee - Short North', 'one_line_coffee.jpg', 'https://www.onelinecoffee.com/short-north-location/', 3, 5, 'coffee, dessert, bean', 'https://www.toasttab.com/one-line-coffee-short-north-745-n-high-st/v3'),

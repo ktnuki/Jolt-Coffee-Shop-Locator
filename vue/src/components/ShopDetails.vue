@@ -1,21 +1,22 @@
 <template>
   <div id="shopdetails" >
     <div id="sidebar-img">
-      <img src="" alt="coffee shop img">
+      <img v-bind:src='imagePath' alt="coffee shop img">
+      
     </div>
     <div> {{ currentshop.rating }} </div>
-    <div> {{ "price" }}  </div>
-    <div>{{ "menu" }}</div>
+    <div> {{ currentshop.price}}  </div>
+    <div><a href=''>{{ currentshop.menulink }}</a></div>
     <div> 
       <h5>{{ "hours" }}</h5>
       <ul>
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wed</li>
-        <li>Thur</li>
-        <li>Fri</li>
-        <li>Sat</li>
-        <li>Sun</li>
+        <li>Mon {{ currentshop.monday }}</li>
+        <li>Tue {{ currentshop.tuesday }}</li>
+        <li>Wed {{ currentshop.wednesday }}</li>
+        <li>Thur {{ currentshop.thursday }}</li>
+        <li>Fri {{ currentshop.friday }}</li>
+        <li>Sat {{ currentshop.saturday }}</li>
+        <li>Sun {{ currentshop.sunday }}</li>
       </ul>
       </div>
     <div>{{ currentshop.address }}</div>
@@ -30,13 +31,15 @@ export default {
   name: "shop-details",
   data() {
     return {
-    
+     
     }
   },
   computed: {
     currentshop(){
       return this.$store.state.activeShop;
-    }
+    },
+
+   
   }
 }
 </script>
