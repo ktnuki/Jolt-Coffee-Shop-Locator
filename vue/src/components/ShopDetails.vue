@@ -1,7 +1,8 @@
 <template>
   <div id="shopdetails" >
     <div id="sidebar-img">
-      <img v-bind:src='imagePath' alt="coffee shop img">
+      <img :src="require(`../assets/${currentshop.image}`)"
+ alt="coffee shop img"/>
       
     </div>
     <div> {{ currentshop.rating }} </div>
