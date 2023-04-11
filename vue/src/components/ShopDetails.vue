@@ -1,26 +1,29 @@
 <template>
   <div id="shopdetails" >
     <div id="sidebar-img">
-      <img :src="require(`../assets/${currentshop.image}`)"
+      <!-- <img :src="require(`../assets/${currentshop.image}`)"
+ alt="coffee shop img"/>
+       -->
+       <img :src="getImageURL(currentshop.image)"
  alt="coffee shop img"/>
       
     </div>
-    <div> {{ currentshop.rating }} </div>
-    <div> {{ currentshop.price}}  </div>
+    <div>Rating: {{ currentshop.rating }} </div>
+    <div>Price: {{ currentshop.price}}  </div>
     <div><a href=''>{{ currentshop.menulink }}</a></div>
     <div> 
       <h5>{{ "hours" }}</h5>
-      <ul>
-        <li>Mon {{ currentshop.monday }}</li>
-        <li>Tue {{ currentshop.tuesday }}</li>
-        <li>Wed {{ currentshop.wednesday }}</li>
-        <li>Thur {{ currentshop.thursday }}</li>
-        <li>Fri {{ currentshop.friday }}</li>
-        <li>Sat {{ currentshop.saturday }}</li>
-        <li>Sun {{ currentshop.sunday }}</li>
+      <ul class="hours">
+        <li>Monday: {{ currentshop.monday }}</li>
+        <li>Tuesday: {{ currentshop.tuesday }}</li>
+        <li>Wednesday: {{ currentshop.wednesday }}</li>
+        <li>Thurday: {{ currentshop.thursday }}</li>
+        <li>Friday: {{ currentshop.friday }}</li>
+        <li>Saturday: {{ currentshop.saturday }}</li>
+        <li>Sunday: {{ currentshop.sunday }}</li>
       </ul>
       </div>
-    <div>{{ currentshop.address }}</div>
+    <div>Address: {{ currentshop.address }}</div>
     
     
   
@@ -39,27 +42,40 @@ export default {
     currentshop(){
       return this.$store.state.activeShop;
     },
-
-   
+  },
+  methods:{
+    getImageURL(pic){
+      return require('../assets/' + pic)
+    }
   }
 }
 </script>
 
 <style scoped>
+img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 
 #shopdetails{
-  height: 100vh;
   display: grid;
   grid-template-columns: auto;
   align-items: center;
-  border-color: blueviolet;
+/*   border-color: blueviolet;
   border: solid;
-  border-width: 1px;
+  border-width: 1px; */
 }
 #shopdetails > div{
-  border-color: blueviolet;
+  margin-top: 10px;
+  /* border-color: blueviolet;
   border: solid;
-  border-width: 1px;
+  border-width: 1px; */
+}
+
+.hours{
+  list-style-type: none;
 }
 
 </style>
