@@ -1,23 +1,29 @@
 <template>
-  <div class="shopdetails">
-      <h1>Shop Details</h1>
-        <div v-for="shop in this.$store.state.shops" v-bind:key="shop.id">
-    <router-link v-on:click.prevent="setActiveShop()" v-bind:to="{ name: 'details', params: {id: shop.id} }"></router-link>
-    <h2>{{ shop.shop }}</h2>
-    </div>
-      <img src="#" alt="">
 
+  <div class="shopdetails" >
+    Hello
+    {{ currentshop.address }}
+    {{ currentshop.shop }}
+    {{ currentshop.rating }}
 
   </div>
 </template>
 
 <script>
 export default {
-    name: 'shop-details',
-
+  name: "shop-details",
+  data() {
+    return {
+    
+    }
+  },
+  computed: {
+    currentshop(){
+      return this.$store.state.activeShop;
+    }
+  }
 }
 </script>
 
 <style>
-
 </style>

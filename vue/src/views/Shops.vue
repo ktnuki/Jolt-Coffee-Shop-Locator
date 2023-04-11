@@ -1,14 +1,13 @@
 <template>
   <div>
       <div>
-    <b-button v-b-toggle.sidebar-variant>Toggle Sidebar</b-button>
-    <b-sidebar ref="mysidebar" id="sidebar-variant" title="Sidebar" bg-variant="dark" text-variant="light" shadow>
+    <b-sidebar  v-model="isSideBarOpen" id="sidebar-variant" title="Sidebar" bg-variant="dark" text-variant="light" shadow>
       <div class="px-3 py-2">
         <shop-details />
       </div>
     </b-sidebar>
   </div>
-      <shop-list @toggle="toggleSidebar()"/>
+      <shop-list @opensidebar="toggleSidebar()"/>
   </div>
 </template>
 
@@ -21,9 +20,14 @@ export default {
         ShopList,
         ShopDetails
     },
+    data(){
+      return{
+        isSideBarOpen: false
+      }
+    },
     methods: {
         toggleSidebar() {
-            this.$refs.mysidebar.toggle();
+            this.isSideBarOpen = !this.isSideBarOpen;
         }
     }
 

@@ -18,7 +18,7 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    activeShop: null,
+    activeShop: [],
     shops: [],
     token: currentToken || '',
     user: currentUser || {}
@@ -43,7 +43,7 @@ export default new Vuex.Store({
     SET_SHOPS(state, shops) {
       state.shops = shops;
     },
-    SET_ACTIVE_SHOP(state, shop) {
+    SET_ACTIVE_SHOP(state, shop, ) {
       state.activeShop = shop;
     }
   }
