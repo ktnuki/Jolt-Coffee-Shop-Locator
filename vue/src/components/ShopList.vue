@@ -1,12 +1,46 @@
 <template>
   <div>
     <div>
-      <img class="image" src="../assets/generic1.png" alt="" />
+      <div>
+        <img class="image" src="../assets/generic1.png" alt="" />
+      </div>
+      <div id="nav-buttons">
+        <button @click="isFilterList = !isFilterList" id="filter-favorites">
+          Filter Favorites
+        </button>
+        <button id="get-directions">Get Directions</button>
+      </div>
+      <img
+        v-if="isFilterList"
+        class="image"
+        src="../assets/generic1.png"
+        alt=""
+      />
+      <img
+        v-if="!isFilterList"
+        class="image"
+        src="../assets/generic2.png"
+        alt=""
+      />
     </div>
     <div id="nav-buttons">
-      <button @click="isFilterList = !isFilterList" id="filter-favorites">Filter Favorites</button>
+      <button
+        v-if="!isFilterList"
+        @click="isFilterList = !isFilterList"
+        id="filter-favorites"
+      >
+        Filter Favorites
+      </button>
+      <button
+        v-if="isFilterList"
+        @click="isFilterList = !isFilterList"
+        id="filter-favorites"
+      >
+        List All Shops
+      </button>
       <button id="get-directions">Get Directions</button>
     </div>
+    <h1>Coffee Shops</h1>
     <div class="shoplist">
       <div v-for="shop in getFavorites()" v-bind:key="shop.id">
         <div
@@ -36,6 +70,11 @@ export default {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
     getFavorites() {
+      ShopService.getFavoritesList()
+        .then((response) => {
+          this.favoritesList = response.data;
+        })
+        .catch((err) => console.error(err));
       if (this.isFilterList == false) {
         return this.$store.state.shops;
       } else {
@@ -84,6 +123,7 @@ export default {
   width: 80%;
   margin-bottom: 20px;
   margin-top: 20px;
+  border-radius: 8px;
 }
 #nav-buttons {
   display: flex;

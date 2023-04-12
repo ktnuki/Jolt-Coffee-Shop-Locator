@@ -10,6 +10,9 @@
       <button>Like</button>
       <button>Dislike</button>
       <button v-on:click.prevent="addFavoriteShop()">Favorite</button>
+      <button @click="addFavoriteShop()">Favorite</button>
+      <button @click="unfavoriteShop()">Unfavorite</button>
+
       
 
     </div>
@@ -68,13 +71,13 @@
 
 import ShopService from '../services/ShopService';
 
+import ShopService from '../services/ShopService';
 export default {
   name: "shop-details",
+  props: ['isSideBarOpen'],
+  
   data() {
     return {
-      //   newFavoriteShop: {
-      //   shopId: 0
-      // }
     }
   },
   computed: {
@@ -86,20 +89,15 @@ export default {
     getImageURL(pic){
       return require('../assets/' + pic)
     },
-      addFavoriteShop() {
-        const favoriteShopId = this.$store.state.activeShop.shopId;
-       // this.newFavoriteShop.shopId = favoriteShopId;
-
-        ShopService.addFavoriteShop(favoriteShopId)
-        .then(response => {
-          if(response.status === 201) {
-            this.$router.push( {
-            name: "favorites",
-            params: { shopId: favoriteShopId }          
-          });
-        }
-      }).catch(err => console.error(err));
+    addFavoriteShop(){
+      let shopId = this.currentshop.shopId;
+      ShopService.addFavorite(shopId);
+    },
+    unfavoriteShop(){
+      let shopId = this.currentshop.shopId;
+      ShopService.unFavorite(shopId);
     }
+   
   }
 }
 </script>
@@ -148,11 +146,22 @@ img{
 #buttons {
   display: flex;
   justify-content: space-between;
-  margin-right: 5%;
-  margin-left: 5%;
+  /* margin-right: 5%;
+  margin-left: 5%; */
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 12px;
 
+}
+
+.button {
+  box-shadow: 0 3px #666;
+  color: #9f5a37
+  
+}
+.button:active {
+  box-shadow: 0 1px #666;
+  background-color: #b48f58;
+  transform: translateY(2px);
 }
 
 
