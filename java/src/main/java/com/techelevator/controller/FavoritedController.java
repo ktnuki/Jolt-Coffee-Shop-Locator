@@ -14,7 +14,7 @@ import java.util.List;
 //TODO: add preauth
 
 
-@PreAuthorize("isAuthenticated")
+//@PreAuthorize("isAuthenticated")
 @CrossOrigin
 @RestController
 public class FavoritedController {
