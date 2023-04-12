@@ -9,7 +9,7 @@
     <div id="buttons">
       <button>Like</button>
       <button>Dislike</button>
-      <button>Favorite</button>
+      <button v-on:click.prevent="addFavoriteShop()">Favorite</button>
       
 
     </div>
@@ -65,11 +65,16 @@
 </template>
 
 <script>
+
+import ShopService from '../services/ShopService';
+
 export default {
   name: "shop-details",
   data() {
     return {
-     
+      //   newFavoriteShop: {
+      //   shopId: 0
+      // }
     }
   },
   computed: {
@@ -80,6 +85,20 @@ export default {
   methods:{
     getImageURL(pic){
       return require('../assets/' + pic)
+    },
+      addFavoriteShop() {
+        const favoriteShopId = this.$store.state.activeShop.shopId;
+       // this.newFavoriteShop.shopId = favoriteShopId;
+
+        ShopService.addFavoriteShop(favoriteShopId)
+        .then(response => {
+          if(response.status === 201) {
+            this.$router.push( {
+            name: "favorites",
+            params: { shopId: favoriteShopId }          
+          });
+        }
+      }).catch(err => console.error(err));
     }
   }
 }

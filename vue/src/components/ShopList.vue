@@ -21,7 +21,11 @@ export default {
   name: "shop-list",
 
   data() {
-    return {}
+    return {
+      newFavoriteShop: {
+        shopId: 0
+      }
+    }
   },
   methods: {
       setActiveShop(shop) {
@@ -33,11 +37,6 @@ export default {
           this.$store.commit('SET_SHOPS', response.data)
       })
       .catch(err => console.error(err));
-
-      //pull in favorited list as a local var (optional) or come from store
-
-      //created - make a call to get favorite list & ids 
-      //use it to filter in computed
   }
 };
 </script>
