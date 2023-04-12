@@ -12,18 +12,23 @@ export default {
   name: "shop-list",
 
   data() {
-    return {};
+    return {}
+  },
+  methods: {
+      setActiveShop(shop) {
+          return this.$store.commit('SET_ACTIVE_SHOP', shop);
+      }
   },
   created() {
       ShopService.getShopsList().then((response) => {
           this.$store.commit('SET_SHOPS', response.data)
       })
       .catch(err => console.error(err));
-  },
-  methods: {
-      setActiveShop(shop) {
-          return this.$store.commit('SET_ACTIVE_SHOP', shop);
-      }
+
+      //pull in favorited list as a local var (optional) or come from store
+
+      //created - make a call to get favorite list & ids 
+      //use it to filter in computed
   }
 };
 </script>
