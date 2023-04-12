@@ -17,7 +17,6 @@ public class JdbcFavoritedShopDao implements FavoritedShopDao{
     public JdbcFavoritedShopDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
     @Override
     public List<FavoritedShop> getFavoriteShopsList(int userId) {
         List<FavoritedShop> shopsOutput = new ArrayList<FavoritedShop>();
@@ -32,7 +31,6 @@ public class JdbcFavoritedShopDao implements FavoritedShopDao{
             FavoritedShop shop = new FavoritedShop();
             shop.setShopId(results.getInt("coffee_shop_id"));
             shop.setUserId(results.getInt("current_user_id"));
-            shop.setShop(results.getString("shop_name"));
             shopsOutput.add(shop);
         }
         return shopsOutput;
