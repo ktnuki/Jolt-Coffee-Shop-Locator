@@ -8,30 +8,52 @@
  alt="coffee shop img"/>
       
     </div>
-    <div>Rating: {{ currentshop.rating }} </div>
-    <img id="price" src="../assets/icons8-coffee-bean-48.png" alt=""  v-for="numberOfRating in currentshop.rating"
+    <div>Rating:</div>
+    <div>
+    <img id="rating" src="../assets/icons8-coffee-bean-48.png" alt=""  v-for="numberOfRating in currentshop.rating"
             v-bind:key="numberOfRating"/>
-    <div>Price: {{ currentshop.price}}  </div>
+    </div>
+
+    <div>Price:</div>
+    <div>
     <img id="price" src="../assets/icons8-coffee-cup-64.png" alt=""  v-for="numberOfPrice in currentshop.price"
             v-bind:key="numberOfPrice"/>
+    </div>
+
 
     <div><a href=''>{{ currentshop.menulink }}</a></div>
     <div> 
-      <h5>{{ "hours" }}</h5>
+      <div>Hours:</div>
       <ul class="hours">
-        <li>Monday: {{ currentshop.monday }}</li>
-        <li>Tuesday: {{ currentshop.tuesday }}</li>
-        <li>Wednesday: {{ currentshop.wednesday }}</li>
-        <li>Thurday: {{ currentshop.thursday }}</li>
-        <li>Friday: {{ currentshop.friday }}</li>
-        <li>Saturday: {{ currentshop.saturday }}</li>
-        <li>Sunday: {{ currentshop.sunday }}</li>
+        <li>
+        <p>Monday:</p> <p>{{ currentshop.monday }}</p>
+        </li>
+        <li> 
+        <p>Tuesday:</p> <p>{{ currentshop.tuesday }}</p>
+        </li>
+        <li> 
+        <p>Wednesday:</p> <p>{{ currentshop.wednesday }}</p>
+        </li>
+        <li> 
+        <p>Thurday:</p> <p>{{ currentshop.thursday }}</p>
+        </li>
+        <li>
+        <p>Friday: </p> <p>{{ currentshop.friday }}</p>
+        </li>
+        <li>
+        <p>Saturday: </p> <p>{{ currentshop.saturday }}</p>
+        </li>
+        <li>
+        <p>Sunday: </p> <p>{{ currentshop.sunday }}</p>
+        </li>
       </ul>
       </div>
-    <div>Address: {{ currentshop.address }}</div>
+      <div>Address:</div>
+    <div class="address"> {{ currentshop.address }}</div>
     
     
   
+
   </div>
 </template>
 
@@ -79,8 +101,21 @@ img{
   border-width: 1px; */
 }
 
-.hours{
+.hours > li{
+  display: flex;
   list-style-type: none;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
+.address {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 
 </style>
