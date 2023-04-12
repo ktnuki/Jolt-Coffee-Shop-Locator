@@ -49,7 +49,7 @@
       </ul>
       </div>
       <div>Address:</div>
-    <div> {{ currentshop.address }}</div>
+    <div class="address"> {{ currentshop.address }}</div>
     
     
   
@@ -110,6 +110,11 @@ img{
   width: 60%;
   margin-left: 20%;
   margin-right: 20%;
+}
+.address {
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 
