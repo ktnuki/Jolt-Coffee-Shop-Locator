@@ -10,6 +10,7 @@
       <button>Like</button>
       <button>Dislike</button>
       <button>Favorite</button>
+      <button>Unfavorite</button>
       
 
     </div>
@@ -129,10 +130,10 @@ img{
 #buttons {
   display: flex;
   justify-content: space-between;
-  margin-right: 5%;
-  margin-left: 5%;
+  /* margin-right: 5%;
+  margin-left: 5%; */
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 12px;
 
 }
 
