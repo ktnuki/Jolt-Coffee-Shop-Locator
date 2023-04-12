@@ -150,5 +150,16 @@ img{
 
 }
 
+.button {
+  box-shadow: 0 3px #666;
+  color: #9f5a37
+  
+}
+.button:active {
+  box-shadow: 0 1px #666;
+  background-color: #b48f58;
+  transform: translateY(2px);
+}
+
 
 </style>

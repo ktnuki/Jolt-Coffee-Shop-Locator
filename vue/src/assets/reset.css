@@ -33,6 +33,12 @@ button {
   font: inherit;
   line-height: normal;
   appearance: none;
+  box-shadow: 0 3px #999;
+}
+button:active {
+  background-color: #b48f58;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
 button,
 input,
