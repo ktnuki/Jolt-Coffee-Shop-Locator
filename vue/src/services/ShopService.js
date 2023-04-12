@@ -7,5 +7,8 @@ export default {
     },
     getShopById(id) {
         return axios.get(`/details${id}`)
+    },
+    getFavoritesList() {
+        return axios.get('/favorites')
     }
 }
