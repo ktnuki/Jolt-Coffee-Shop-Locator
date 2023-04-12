@@ -36,6 +36,11 @@ export default {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
     getFavorites() {
+      ShopService.getFavoritesList()
+      .then((response) => {
+        this.favoritesList = response.data;
+      })
+      .catch((err) => console.error(err));
       if (this.isFilterList == false) {
         return this.$store.state.shops;
       } else {

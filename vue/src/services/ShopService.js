@@ -10,5 +10,11 @@ export default {
     },
     getFavoritesList() {
         return axios.get('/favorites')
+    },
+    addFavorite(shopId){
+        return axios.post(`/favorites/${shopId}`, shopId)
+    },
+    unFavorite(shopId){
+        return axios.delete(`/favorites/${shopId}`, shopId)
     }
 }

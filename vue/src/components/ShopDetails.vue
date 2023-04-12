@@ -9,7 +9,7 @@
     <div id="buttons">
       <button>Like</button>
       <button>Dislike</button>
-      <button>Favorite</button>
+      <button @click="addFavoriteShop()">Favorite</button>
       
 
     </div>
@@ -65,8 +65,11 @@
 </template>
 
 <script>
+import ShopService from '../services/ShopService';
 export default {
   name: "shop-details",
+  props: ['isSideBarOpen'],
+  
   data() {
     return {
      
@@ -80,7 +83,16 @@ export default {
   methods:{
     getImageURL(pic){
       return require('../assets/' + pic)
+    },
+    addFavoriteShop(){
+      let shopId = this.currentshop.shopId;
+      ShopService.addFavorite(shopId);
+    },
+    unfavoriteShop(){
+      let shopId = this.currentshop.shopId;
+      ShopService.unFavorite(shopId);
     }
+   
   }
 }
 </script>
