@@ -71,7 +71,6 @@
 
 import ShopService from '../services/ShopService';
 
-import ShopService from '../services/ShopService';
 export default {
   name: "shop-details",
   props: ['isSideBarOpen'],
