@@ -17,4 +17,4 @@ export default {
     unFavorite(shopId){
         return axios.delete(`/favorites/${shopId}`, shopId)
     }
-}
+} 
