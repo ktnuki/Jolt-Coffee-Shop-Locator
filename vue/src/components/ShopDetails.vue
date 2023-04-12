@@ -9,7 +9,6 @@
     <div id="buttons">
       <button>Like</button>
       <button>Dislike</button>
-      <button v-on:click.prevent="addFavoriteShop()">Favorite</button>
       <button @click="addFavoriteShop()">Favorite</button>
       <button @click="unfavoriteShop()">Unfavorite</button>
 
@@ -68,15 +67,14 @@
 </template>
 
 <script>
-
 import ShopService from '../services/ShopService';
-
 export default {
   name: "shop-details",
   props: ['isSideBarOpen'],
   
   data() {
     return {
+     
     }
   },
   computed: {

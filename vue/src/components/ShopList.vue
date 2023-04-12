@@ -1,43 +1,12 @@
 <template>
   <div>
     <div>
-      <div>
-        <img class="image" src="../assets/generic1.png" alt="" />
-      </div>
-      <div id="nav-buttons">
-        <button @click="isFilterList = !isFilterList" id="filter-favorites">
-          Filter Favorites
-        </button>
-        <button id="get-directions">Get Directions</button>
-      </div>
-      <img
-        v-if="isFilterList"
-        class="image"
-        src="../assets/generic1.png"
-        alt=""
-      />
-      <img
-        v-if="!isFilterList"
-        class="image"
-        src="../assets/generic2.png"
-        alt=""
-      />
+      <img v-if="isFilterList" class="image" src="../assets/generic1.png" alt="" />
+      <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" />
     </div>
     <div id="nav-buttons">
-      <button
-        v-if="!isFilterList"
-        @click="isFilterList = !isFilterList"
-        id="filter-favorites"
-      >
-        Filter Favorites
-      </button>
-      <button
-        v-if="isFilterList"
-        @click="isFilterList = !isFilterList"
-        id="filter-favorites"
-      >
-        List All Shops
-      </button>
+      <button v-if="!isFilterList" @click="isFilterList = !isFilterList" id="filter-favorites">Filter Favorites</button>
+      <button v-if="isFilterList" @click="isFilterList = !isFilterList" id="filter-favorites">List All Shops</button>
       <button id="get-directions">Get Directions</button>
     </div>
     <h1>Coffee Shops</h1>
@@ -71,10 +40,10 @@ export default {
     },
     getFavorites() {
       ShopService.getFavoritesList()
-        .then((response) => {
-          this.favoritesList = response.data;
-        })
-        .catch((err) => console.error(err));
+      .then((response) => {
+        this.favoritesList = response.data;
+      })
+      .catch((err) => console.error(err));
       if (this.isFilterList == false) {
         return this.$store.state.shops;
       } else {
