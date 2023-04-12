@@ -3,6 +3,10 @@
     <div >
       <img class="image" src="../assets/generic1.png" alt="">
     </div> 
+    <div id="nav-buttons">
+      <button id="filter-favorites">Filter Favorites</button>
+      <button id="get-directions">Get Directions</button>
+    </div>
   <div class="shoplist" >
     <div v-for="shop in this.$store.state.shops" v-bind:key="shop.id">
       <div class="shop" v-on:click.prevent="setActiveShop(shop), $emit('opensidebar')">{{shop.shop + " ~ " + shop.address}}</div>
@@ -46,11 +50,19 @@ export default {
 }
 .shop:hover{
   color: #683012;
+  cursor: default;
 }
 .image{
   width: 80%;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+#nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-bottom: 20px;
 }
 
 </style>

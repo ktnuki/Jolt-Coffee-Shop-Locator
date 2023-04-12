@@ -6,15 +6,22 @@
        -->
        <img :src="getImageURL(currentshop.image)"
  alt="coffee shop img"/>
+    <div id="buttons">
+      <button>Like</button>
+      <button>Dislike</button>
+      <button>Favorite</button>
+      
+
+    </div>
       
     </div>
-    <div>Rating:</div>
+    <div class="headers">Rating:</div>
     <div>
     <img id="rating" src="../assets/icons8-coffee-bean-48.png" alt=""  v-for="numberOfRating in currentshop.rating"
             v-bind:key="numberOfRating"/>
     </div>
 
-    <div>Price:</div>
+    <div class="headers">Price:</div>
     <div>
     <img id="price" src="../assets/icons8-coffee-cup-64.png" alt=""  v-for="numberOfPrice in currentshop.price"
             v-bind:key="numberOfPrice"/>
@@ -23,7 +30,7 @@
 
     <div><a href=''>{{ currentshop.menulink }}</a></div>
     <div> 
-      <div>Hours:</div>
+      <div class="headers">Hours:</div>
       <ul class="hours">
         <li>
         <p>Monday:</p> <p>{{ currentshop.monday }}</p>
@@ -48,7 +55,7 @@
         </li>
       </ul>
       </div>
-      <div>Address:</div>
+      <div class="headers">Address:</div>
     <div class="address"> {{ currentshop.address }}</div>
     
     
@@ -90,15 +97,10 @@ img{
   display: grid;
   grid-template-columns: auto;
   align-items: center;
-/*   border-color: blueviolet;
-  border: solid;
-  border-width: 1px; */
 }
 #shopdetails > div{
   margin-top: 10px;
-  /* border-color: blueviolet;
-  border: solid;
-  border-width: 1px; */
+  
 }
 
 .hours > li{
@@ -115,6 +117,23 @@ img{
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-right: 20%;
+  margin-left: 20%;
+  width: 60%;
+  cursor: default;
+}
+.headers {
+  text-decoration: underline;
+  cursor: default;
+}
+#buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 10px;
+  font-size: 15px;
+
 }
 
 

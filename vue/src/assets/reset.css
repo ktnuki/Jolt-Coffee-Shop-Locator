@@ -9,9 +9,7 @@ Importing it at this level causes it to be automatically added in during the bui
 *::after {
   box-sizing: border-box;
 }
-*:focus {
-  outline: 3px dashed #9f5a37;
-}
+
 html {
   font: 62.5% / 1.15 sans-serif;
 }
@@ -27,7 +25,7 @@ button {
   border: 0.2rem solid #9f5a37;;
   border-radius: 5px;
   margin: 0;
-  padding: 10px 10px;
+  padding: 5px 15px 5px 15px;
   width: auto;
   overflow: visible;
   background: #ddaf6b;
@@ -55,7 +53,7 @@ input[type="text"] {
 }
 body {
   width: 100%;
-  max-width: 68rem;
+  max-width: 90rem;
   margin: 0 auto;
   font: 1.6rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #ddaf6b;
