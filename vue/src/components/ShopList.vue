@@ -21,11 +21,7 @@ export default {
   name: "shop-list",
 
   data() {
-    return {
-      newFavoriteShop: {
-        shopId: 0
-      }
-    }
+    return {}
   },
   methods: {
       setActiveShop(shop) {
