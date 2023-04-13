@@ -42,11 +42,13 @@
         </div>
       </b-sidebar>
     </div>
+    <Map></Map>
     <shop-list @opensidebar="toggleSidebar()" />
   </div>
 </template>
 
 <script>
+import Map from '../components/Map.vue';
 import ShopDetails from "../components/ShopDetails.vue";
 import ShopList from "../components/ShopList.vue";
 
@@ -54,6 +56,7 @@ export default {
   components: {
     ShopList,
     ShopDetails,
+    Map,
   },
   data() {
     return {
