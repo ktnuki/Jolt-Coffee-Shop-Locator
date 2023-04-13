@@ -16,8 +16,8 @@ public class CoffeeShop {
     private String friday;
     private String saturday;
     private String sunday;
-    private double latitude;
-    private double longitude;
+    private float latitude;
+    private float longitude;
 
 
 
@@ -25,7 +25,7 @@ public class CoffeeShop {
 
     public CoffeeShop(){}
 
-    public CoffeeShop(int shopId, String shop, String image, String webLink, int price, int rating, String highlights, String menuLink, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, double latitude, double longitude, String address) {
+    public CoffeeShop(int shopId, String shop, String image, String webLink, int price, int rating, String highlights, String menuLink, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, float latitude, float longitude, String address) {
         this.shopId = shopId;
         this.shop = shop;
         this.image = image;
@@ -173,7 +173,7 @@ public class CoffeeShop {
     public void setSunday(String sunday) {
         this.sunday = sunday;
     }
-    public double getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
@@ -181,7 +181,7 @@ public class CoffeeShop {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 

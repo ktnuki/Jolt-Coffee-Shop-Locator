@@ -4,10 +4,10 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 INSERT INTO coffee_shops (shop_name, main_image, website_link, price_range, rating, highlights, menu_link, latitude, longitude)
-VALUES ('Third Way Cafe', 'third_way_cafe.png', 'www.thirdwaycafe.org', 1, 4, 'coffee, non-dairy', 'www.thirdwaycafe.org/menu', 39.95471, -83.08208),
-		('Fox in the Snow Cafe - Short North', 'foxinthesnow.jpeg', 'www.foxinthesnow.com', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu', 39.98411, -82.99934),
-		('Fox in the Snow Cafe - German Village', 'foxinthesnow.jpeg', 'www.foxinthesnow.com', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu',39.93971, -82.99047),
-		('Fox in the Snow Cafe - New Albany', 'foxinthesnow.jpeg', 'www.foxinthesnow.com', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu', 40.08196, -82.81368),
+VALUES ('Third Way Cafe', 'third_way_cafe.png', 'https://www.thirdwaycafe.org/', 1, 4, 'coffee, non-dairy', 'www.thirdwaycafe.org/menu', 39.95471, -83.08208),
+		('Fox in the Snow Cafe - Short North', 'foxinthesnow.jpeg', 'https://www.foxinthesnow.com/', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu', 39.98411, -82.99934),
+		('Fox in the Snow Cafe - German Village', 'foxinthesnow.jpeg', 'https://www.foxinthesnow.com/', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu',39.93971, -82.99047),
+		('Fox in the Snow Cafe - New Albany', 'foxinthesnow.jpeg', 'https://www.foxinthesnow.com/', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu', 40.08196, -82.81368),
 		('Pistacia Vera', 'pistacia_vera.png', 'https://www.pistaciavera.com/', 4, 4, 'coffee, food, dessert, non-dairy, outdoor seating, dog friendly', 'https://static1.squarespace.com/static/525406e0e4b03949ba5345ea/t/642d8a566dc7e770f0464b5a/1680706135156/FULL+MENU+SPRING+2023+NEW+FINAL+%281%29.pdf', 39.95127,-82.99614),
 		('One Line Coffee - Short North', 'one_line_coffee.jpg', 'https://www.onelinecoffee.com/short-north-location/', 3, 5, 'coffee, dessert, bean, non-dairy', 'https://www.toasttab.com/one-line-coffee-short-north-745-n-high-st/v3', 39.97774126, -83.00381997),
 		('Brioso Coffee', 'brioso_coffee.png', 'https://briosocoffee.com/', 2, 3, 'coffee, bean, non-dairy, outdoor seating', 'https://briosocoffee.com/pages/high-st', 39.9635789, -83.00105985),

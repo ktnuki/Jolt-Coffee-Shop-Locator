@@ -44,6 +44,8 @@ public class JdbcShopDao implements ShopDao{
             shop.setThursday(results.getString("thursday"));
             shop.setFriday(results.getString("friday"));
             shop.setSaturday(results.getString("saturday"));
+            shop.setLatitude(results.getFloat("latitude"));
+            shop.setLongitude(results.getFloat("longitude"));
             shopsOutput.add(shop);
         }
         return shopsOutput;

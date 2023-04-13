@@ -25,8 +25,8 @@ CREATE TABLE coffee_shops (
 	rating int,
 	highlights varchar(255),
 	menu_link varchar(255),
-	latitude FLOAT(10,8) NOT NULL,
-	longitude FLOAT(10,8) NOT NULL
+	latitude float(10) NOT NULL,
+	longitude float(10) NOT NULL,
 	
 	
 	CONSTRAINT pk_shop_id PRIMARY KEY (shop_id)
