@@ -13,19 +13,29 @@
       <button @click="unfavoriteShop()">Unfavorite</button>
 
       
-
+</div>
     </div>
-      
+    <div class="highlight-header, headers">Highlights:</div>
+    <div>
+      <img class="highlights" v-if="currentshop.highlights.includes('food')" src="../assets/food.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('dessert')" src="../assets/desserts.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('bean')" src="../assets/beans.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('alcohol')" src="../assets/cocktail.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('smoothies')" src="../assets/smoothie.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('non-dairy')" src="../assets/dairy_free_2.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('outdoor seating')" src="../assets/terrace_1.png" alt="" />
+    <img class="highlights" v-if="currentshop.highlights.includes('dog friendly')" src="../assets/pet_friendly.png" alt="" />
     </div>
+    
     <div class="headers">Rating:</div>
     <div>
-    <img id="rating" src="../assets/icons8-coffee-bean-48.png" alt=""  v-for="numberOfRating in currentshop.rating"
+    <img id="rating" class="highlights" src="../assets/icons8-coffee-bean-48.png" alt=""  v-for="numberOfRating in currentshop.rating"
             v-bind:key="numberOfRating"/>
     </div>
 
     <div class="headers">Price:</div>
     <div>
-    <img id="price" src="../assets/icons8-coffee-cup-64.png" alt=""  v-for="numberOfPrice in currentshop.price"
+    <img id="price" class="coffee-cups" src="../assets/icons8-coffee-cup-64.png" alt=""  v-for="numberOfPrice in currentshop.price"
             v-bind:key="numberOfPrice"/>
     </div>
 
@@ -59,6 +69,12 @@
       </div>
       <div class="headers">Address:</div>
     <div class="address"> {{ currentshop.address }}</div>
+
+    <div>
+      <a v-bind:href=currentshop.webLink target="_blank">
+      <button class="weblink" >Visit Our Website</button>
+      </a>
+            </div>
     
     
   
@@ -140,12 +156,14 @@ img{
   text-decoration: underline;
   cursor: default;
 }
+.highlight-header {
+  margin-bottom: 10px;
+}
 #buttons {
   display: flex;
   justify-content: space-between;
-  /* margin-right: 5%;
-  margin-left: 5%; */
-  margin-top: 10px;
+   margin-top: 10px;
+   margin-bottom: 10px;
   font-size: 12px;
 
 }
@@ -159,6 +177,14 @@ img{
   box-shadow: 0 1px #666;
   background-color: #b48f58;
   transform: translateY(2px);
+}
+.highlights {
+  width: 40px;
+  padding-right: 10px;
+}
+.coffee-cups {
+  width: 50px;
+  padding-right: 10px;
 }
 
 

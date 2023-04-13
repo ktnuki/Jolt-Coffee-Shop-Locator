@@ -4,19 +4,19 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 INSERT INTO coffee_shops (shop_name, main_image, website_link, price_range, rating, highlights, menu_link)
-VALUES ('Third Way Cafe', 'third_way_cafe.png', 'www.thirdwaycafe.org', 1, 4, 'coffee', 'www.thirdwaycafe.org/menu'),
-		('Fox in the Snow Cafe', 'foxinthesnow.jpeg', 'www.foxinthesnow.com', 3, 4, 'coffee, food, dessert, bean, alcohol', 'www.foxinthesnow.com/menus/#menu'),
-		('Pistacia Vera', 'pistacia_vera.png', 'https://www.pistaciavera.com/', 4, 4, 'coffee, food, dessert', 'https://static1.squarespace.com/static/525406e0e4b03949ba5345ea/t/642d8a566dc7e770f0464b5a/1680706135156/FULL+MENU+SPRING+2023+NEW+FINAL+%281%29.pdf'),
-		('One Line Coffee - Short North', 'one_line_coffee.jpg', 'https://www.onelinecoffee.com/short-north-location/', 3, 5, 'coffee, dessert, bean', 'https://www.toasttab.com/one-line-coffee-short-north-745-n-high-st/v3'),
-		('Brioso Coffee', 'brioso_coffee.png', 'https://briosocoffee.com/', 2, 3, 'coffee, bean', 'https://briosocoffee.com/pages/high-st'),
-		('Kolache Republic', 'kolache_republic.jpg', 'https://kolacherepublic.com/', 4, 2, 'coffee, food, dessert', 'https://kolacherepublic.com/menu/'),
-		('Emmetts Cafe', 'emmetts_cafe.png', 'https://www.emmettscafe.com/', 2, 4, 'coffee, food, dessert', 'https://www.emmettscafe.com/menu-s-high'),
-		('Global Gallery', 'global_gallery.png', 'http://www.globalgallerycolumbus.com/', 3, 5, 'coffee, food, dessert, bean, alcohol', 'http://www.globalgallerycolumbus.com/menu-2'),
-		('Staufs Coffee', 'staufs_coffee.png', 'https://www.staufs.com/', 3, 4, 'coffee, food, dessert', 'https://www.staufs.com/grandviewheightsmenu'),
-		('Basic Biscuits, Kindness, and Coffee', 'basic_biscuits.png', 'https://www.getbasicbiscuits.com/', 4, 3, 'coffee, food', 'https://www.getbasicbiscuits.com/home'),
-		('Qamaria Yemeni Coffee Co.', 'qamaria_coffee.png', 'https://www.qamariacoffee.com/', 4, 3, 'coffee, dessert, bean', 'https://www.clover.com/online-ordering/qamaria-hilliard'),
-		('The Roosesvelt Coffeehouse', 'roosevelt_coffee.png', 'https://www.rooseveltcoffee.org/', 3, 3, 'coffee, dessert, food', 'https://roosevelt.coffee/shop/'),
-		('Mission Coffee Company', 'mission_coffee.png', 'https://www.missioncoffeeco.com/', 2, 2, 'bean', 'https://www.missioncoffeeco.com/collections')
+VALUES ('Third Way Cafe', 'third_way_cafe.png', 'www.thirdwaycafe.org', 1, 4, 'coffee, non-dairy', 'www.thirdwaycafe.org/menu'),
+		('Fox in the Snow Cafe', 'foxinthesnow.jpeg', 'www.foxinthesnow.com', 3, 4, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'www.foxinthesnow.com/menus/#menu'),
+		('Pistacia Vera', 'pistacia_vera.png', 'https://www.pistaciavera.com/', 4, 4, 'coffee, food, dessert, non-dairy, outdoor seating, dog friendly', 'https://static1.squarespace.com/static/525406e0e4b03949ba5345ea/t/642d8a566dc7e770f0464b5a/1680706135156/FULL+MENU+SPRING+2023+NEW+FINAL+%281%29.pdf'),
+		('One Line Coffee - Short North', 'one_line_coffee.jpg', 'https://www.onelinecoffee.com/short-north-location/', 3, 5, 'coffee, dessert, bean, non-dairy', 'https://www.toasttab.com/one-line-coffee-short-north-745-n-high-st/v3'),
+		('Brioso Coffee', 'brioso_coffee.png', 'https://briosocoffee.com/', 2, 3, 'coffee, bean, non-dairy, outdoor seating', 'https://briosocoffee.com/pages/high-st'),
+		('Kolache Republic', 'kolache_republic.jpg', 'https://kolacherepublic.com/', 4, 2, 'coffee, food, dessert, non-dairy', 'https://kolacherepublic.com/menu/'),
+		('Emmetts Cafe', 'emmetts_cafe.png', 'https://www.emmettscafe.com/', 2, 4, 'coffee, food, dessert, non-dairy, outdoor seating, dog friendly', 'https://www.emmettscafe.com/menu-s-high'),
+		('Global Gallery', 'global_gallery.png', 'http://www.globalgallerycolumbus.com/', 3, 5, 'coffee, food, dessert, bean, alcohol, non-dairy, outdoor seating, dog friendly', 'http://www.globalgallerycolumbus.com/menu-2'),
+		('Staufs Coffee', 'staufs_coffee.png', 'https://www.staufs.com/', 3, 4, 'coffee, food, dessert, non-dairy, outdoor seating, dog friendly', 'https://www.staufs.com/grandviewheightsmenu'),
+		('Basic Biscuits, Kindness, and Coffee', 'basic_biscuits.png', 'https://www.getbasicbiscuits.com/', 4, 3, 'coffee, food, alcohol, non-dairy, outdoor seating', 'https://www.getbasicbiscuits.com/home'),
+		('Qamaria Yemeni Coffee Co.', 'qamaria_coffee.png', 'https://www.qamariacoffee.com/', 4, 3, 'coffee, dessert, bean, smoothies, non-dairy', 'https://www.clover.com/online-ordering/qamaria-hilliard'),
+		('The Roosesvelt Coffeehouse', 'roosevelt_coffee.png', 'https://www.rooseveltcoffee.org/', 3, 3, 'coffee, dessert, food, non-dairy, outdoor seating, dog friendly', 'https://roosevelt.coffee/shop/'),
+		('Mission Coffee Company', 'mission_coffee.png', 'https://www.missioncoffeeco.com/', 2, 2, 'coffee, bean', 'https://www.missioncoffeeco.com/collections')
 		;
 		
 INSERT INTO address (address) 
