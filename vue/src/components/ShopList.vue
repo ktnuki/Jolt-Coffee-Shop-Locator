@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <img v-if="isFilterList" class="image" src="../assets/generic1.png" alt="" />
-      <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" />
+     <!--  <img v-if="isFilterList" class="image" src="../assets/generic1.png" alt="" />
+      <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" /> -->
     </div>
     <div id="nav-buttons">
       <button v-if="!isFilterList" @click="isFilterList = !isFilterList" id="filter-favorites">Filter Favorites</button>
