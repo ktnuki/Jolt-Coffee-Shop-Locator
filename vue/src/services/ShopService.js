@@ -15,6 +15,6 @@ export default {
         return axios.post(`/favorites/${shopId}`, shopId)
     },
     unFavorite(shopId){
-        return axios.delete(`/favorites/${shopId}`, shopId)
+        return axios.delete(`/favorites/${shopId}`)
     }
 } 
