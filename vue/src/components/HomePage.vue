@@ -2,8 +2,6 @@
   <div>
     <h1>Welcome to Jolt! </h1>
 
-
-
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
     <li id="carousel__slide1"

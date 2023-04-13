@@ -141,7 +141,4 @@ There are generic button themes available, though mostly just useful for referen
   margin-bottom: 10px;
 }
 
-.shop_week{
-  display: flex;
-}
 </style>
