@@ -1,12 +1,16 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'shops' }">Shops</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
+      
+      <router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link class="link" v-bind:to="{ name: 'shops' }">Shops</router-link>&nbsp;|&nbsp;
+      <router-link class="link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link class="link" v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
+
+    <div class="spacer"></div>
     </div>
     <router-view />
+
   </div>
 </template>
 
@@ -125,5 +129,19 @@ There are generic button themes available, though mostly just useful for referen
   text-align: center;
   margin: 0;
   margin-bottom: 1rem;
+}
+
+#nav {
+  border-bottom: 3px solid;
+  margin-bottom: 15px;
+}
+
+.spacer {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.shop_week{
+  display: flex;
 }
 </style>
