@@ -36,13 +36,8 @@
               },
           }
       },
-      computed: {
-        mapCenter(){
-            return {
-             
-            }
-        }
-      },
+    method: {
+    },
       created(){
         this.$getLocation({})
        
