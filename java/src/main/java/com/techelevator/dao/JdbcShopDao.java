@@ -20,7 +20,7 @@ public class JdbcShopDao implements ShopDao{
     @Override
     public List<CoffeeShop> getShopList() {
         List<CoffeeShop> shopsOutput = new ArrayList<>();
-        String sql = "SELECT coffee_shops.shop_id, shop_name, main_image, website_link, price_range, rating, highlights, menu_link, address, sunday, monday, tuesday, wednesday, thursday, friday, saturday\n" +
+        String sql = "SELECT coffee_shops.shop_id, shop_name, main_image, website_link, price_range, rating, highlights, menu_link, address, sunday, monday, tuesday, wednesday, thursday, friday, saturday, latitude, longitude\n" +
                 "FROM coffee_shops\n" +
                 "JOIN shop_address ON shop_address.shop_id = coffee_shops.shop_id\n" +
                 "JOIN address ON shop_address.address_id = address.address_id\n" +
