@@ -21,7 +21,11 @@ export default new Vuex.Store({
     activeShop: [],
     shops: [],
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    coordinates: {
+      lat: 0,
+      lng: 0,
+    },
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -45,6 +49,9 @@ export default new Vuex.Store({
     },
     SET_ACTIVE_SHOP(state, shop, ) {
       state.activeShop = shop;
+    },
+    SET_COORDINATES(state, coordinates){
+      state.coordinates = coordinates
     }
   }
 })

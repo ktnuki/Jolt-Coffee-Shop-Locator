@@ -17,7 +17,7 @@
       
     </div>
 
-    <h1>Coffee Shops</h1>
+    <h1 class="fancy-text bottom-border">Coffee Shops</h1>
     <div class="shoplist">
       <div v-for="shop in getFavorites()" v-bind:key="shop.id">
         <div
@@ -54,6 +54,19 @@ export default {
     };
   },
   methods: {
+    getDistanceBetweenPoints(latitude1, longitude1, latitude2, longitude2, unit = 'miles') {
+    let theta = longitude1 - longitude2;
+    let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+        Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
+        Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+    );
+    if (unit == 'miles') {
+        return Math.round(distance, 2);
+    } else if (unit == 'kilometers') {
+        return Math.round(distance * 1.609344, 2);
+    }
+    },
+
     onChange(e){
       return this.selectedValue = e.target.value
     },
@@ -113,6 +126,7 @@ export default {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  padding-top: 10px;
 }
 .shop:hover {
   color: #683012;
@@ -135,4 +149,25 @@ export default {
 .highlights{
   width: 20px;
 }
+
+.form-select{
+  width: min-content;
+  height: max-content;
+  font-size: 16px;
+  color: #9f5a37;
+  background-color: #ddaf6b;
+  border: #683012 solid;
+  border-width: 2px;
+  border-radius: 8px;
+  box-shadow: 0 2px #666;
+  padding: 5px 15px 5px 15px;
+}
+
+.bottom-border{
+  border-bottom: #9f5a37 solid;
+  border-width: 3px;
+  padding-bottom: 5px;
+}
+
+
 </style>

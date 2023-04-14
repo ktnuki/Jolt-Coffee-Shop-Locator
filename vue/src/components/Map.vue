@@ -1,13 +1,13 @@
 <template>
   <div>
     <GmapMap
-      :center="{ lat: coordinates.lat, lng: coordinates.lng }"
+      :center="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
       :zoom="12"
       style="width: 100%; height: 450px"
     >
       <gmap-marker
         class="marker"
-        :position="{ lat: coordinates.lat, lng: coordinates.lng }"
+        :position="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
         :icon="'http://maps.google.com/mapfiles/kml/pal3/icon56.png'"
         :clickable="true"
         :draggable="false"
@@ -45,10 +45,10 @@ export default {
   name: "Map",
   data() {
     return {
-      coordinates: {
+/*       coordinates: {
         lat: 0,
         lng: 0,
-      },
+      }, */
       infoWindowOptions: {
         pixelOffset: {
           width: 0,
@@ -78,7 +78,7 @@ export default {
     this.$getLocation({})
 
       .then((coordinates) => {
-        this.coordinates = coordinates;
+        this.$store.commit("SET_COORDINATES", coordinates)
       })
       .catch((error) => alert(error));
   },
