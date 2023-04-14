@@ -97,6 +97,7 @@ export default {
 #nav-buttons {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
   margin-right: 10%;
   margin-left: 10%;
   margin-bottom: 20px;

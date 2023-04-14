@@ -197,9 +197,9 @@ img {
   text-align: center;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
+  width: 76%;
+  margin-left: 12%;
+  margin-right: 12%;
 }
 .address {
   display: flex;

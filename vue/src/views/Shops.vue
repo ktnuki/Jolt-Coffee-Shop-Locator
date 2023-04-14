@@ -42,7 +42,7 @@
         </div>
       </b-sidebar>
     </div>
-    <Map></Map>
+    <Map @opensidebar="toggleSidebar()"></Map>
     <shop-list @opensidebar="toggleSidebar()" />
   </div>
 </template>
