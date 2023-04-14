@@ -60,7 +60,7 @@ export default {
     let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
         Math.sin(latitude1 * (Math.PI/180)) * Math.sin(latitude2 * (Math.PI/180)) + 
         Math.cos(latitude1 * (Math.PI/180)) * Math.cos(latitude2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
-    );
+    )
     if (unit == 'miles') {
         return Math.round(distance, 2);
     } else if (unit == 'kilometers') {
@@ -100,10 +100,6 @@ export default {
           )
       } else if(this.selectedValue == 'filter-by-distance'){
         let inputArr = this.$store.state.shops; 
-        console.log('coor from store' + this.$store.state.coordinates.lat + ", " + this.$store.state.coordinates.lng)
-        console.log('coor from var' + inputArr[0].latitude + ", " + inputArr[0].longitude)
-        console.log(this.getDistanceBetweenPoints(39.963376247988535, -82.95747552264257, 40.063637433090534, -82.98358451093677 , 'miles'))
-        console.log(this.getDistanceBetweenPoints(this.$store.state.coordinates.lat, this.$store.state.coordinates.lng, inputArr[0].latitude, inputArr[0].longitude, 'miles'))
         for(let i = 0; i < inputArr.length; i++){
          inputArr[i].distance = this.getDistanceBetweenPoints(this.$store.state.coordinates.lat, this.$store.state.coordinates.lng, inputArr[i].latitude, inputArr[i].longitude, 'miles')
         }
