@@ -5,10 +5,18 @@
       <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" /> -->
     </div>
     <div id="nav-buttons">
-      <button v-if="!isFilterList" @click="isFilterList = !isFilterList" id="filter-favorites">Filter Favorites</button>
-      <button v-if="isFilterList" @click="isFilterList = !isFilterList" id="filter-favorites">List All Shops</button>
+    <!--   <button v-if="!isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">Filter Favorites</button>
+      <button v-if="isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">List All Shops</button> -->
+      <select name="filterDropdown" @change="onChange($event)" class="form-select form-control">
+        <option value="">--------Select Option--------</option>
+        <option value="filter-by-favorites">Filter By Favorites</option> 
+        <option value="filter-by-rating">Filter By Rating</option> 
+        <option value="filter-by-distance">Filter By Distance</option> 
+      </select>
       <button id="get-directions">Get Directions</button>
+      
     </div>
+
     <h1>Coffee Shops</h1>
     <div class="shoplist">
       <div v-for="shop in getFavorites()" v-bind:key="shop.id">
@@ -16,7 +24,16 @@
           class="shop"
           v-on:click.prevent="setActiveShop(shop), $emit('opensidebar')"
         >
-          {{ shop.shop + " ~ " + shop.address }}
+          {{ shop.shop + " ~ " + shop.address + " ~ "}}
+          <img
+        id="rating2"
+        class="highlights"
+        src="../assets/brown-single-bean.png"
+        alt=""
+        title="Positive rating bean"
+        v-for="numberOfRating in shop.rating"
+        v-bind:key="numberOfRating"
+      />
         </div>
       </div>
     </div>
@@ -32,9 +49,17 @@ export default {
     return {
       favoritesList: [],
       isFilterList: false,
+      isFilterRating: false,
+      selectedValue: '',
     };
   },
   methods: {
+    onChange(e){
+      return this.selectedValue = e.target.value
+    },
+    methodToRunOnSelect(payload) {
+            this.object = payload;
+    },
     setActiveShop(shop) {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
@@ -44,9 +69,9 @@ export default {
         this.favoritesList = response.data;
       })
       .catch((err) => console.error(err));
-      if (this.isFilterList == false) {
+      if ( this.selectedValue == '') {
         return this.$store.state.shops;
-      } else {
+      } else if (this.selectedValue == 'filter-by-favorites') {
         return this.$store.state.shops.filter((shop) => {
           for (let i = 0; i < this.favoritesList.length; i++) {
             let output = this.favoritesList[i].shopId;
@@ -54,7 +79,12 @@ export default {
               return shop;
             }
           }
-        });
+        })
+      } else if(this.selectedValue == 'filter-by-rating'){
+        let outputArr = this.$store.state.shops; 
+        return outputArr.sort((a, b)=>
+            b.rating - a.rating
+          )
       }
     },
   },
@@ -101,5 +131,8 @@ export default {
   margin-right: 10%;
   margin-left: 10%;
   margin-bottom: 20px;
+}
+.highlights{
+  width: 20px;
 }
 </style>

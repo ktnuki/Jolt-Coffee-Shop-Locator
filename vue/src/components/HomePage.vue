@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h1>Welcome to Jolt! </h1>
-
-
+    <h1 class="fancy-text">Welcome to Jolt! </h1>
+    <p>Your one stop coffee shop companion app!</p>
 
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
@@ -79,9 +78,18 @@
 </section>
 
 <section class="shop_week">
-    <div class="text_box">Text box placeholder</div>
+    <div class="text_box">
+      <h1 class="fancy-text">Shop of the Week</h1>
+      <a href="https://www.foxinthesnow.com/" target="_blank" >
+      <h4 class="fancy-text">Fox in the Snow</h4>
+      </a>
+<p>Fox in the Snow Cafe is a bakery, coffee shop serving up rustic-style baked goods and hand-poured drinks out of three quaint shops in the Italian Village, German Village and New Albany neighborhoods of Columbus, Ohio. Coffee lovers can find all sorts of drinks like lattes, cappuccinos, mochas, and even cold brews or chai teas. But the list doesn't stop there; this lovely coffee shop has a delicious variety of fresh pastries baked every day, and they are also famous for their mouth-watering, rich breakfast sandwiches served on fresh baguettes.
+      
+      </p>
+      </div>
+
     <div class="picture_holder">
-      <img src="../assets/foxinthesnow.jpeg" alt="">
+      <img class="week_picture" src="../assets/foxinthesnow.jpeg" alt="">
     </div>
   </section>
 
@@ -113,11 +121,27 @@ export default {
 
 .shop_week{
   display: flex;
+  /* border:solid #333; */
+  align-self: auto;
+  flex-basis: 200px;
+  column-gap: 2em;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 .picture_holder > img {
-  width: 40%
+   height: 25em;
 }
-
+.picture_holder {
+  
+  margin-right:auto;
+  /* border:solid #333; */
+  flex-shrink: 1;
+  
+}
+.text_box {
+  /* border:solid #333; */
+  flex-grow: 2;
+}
 
 
 
@@ -209,6 +233,9 @@ ol, li {
   padding-top: 75%;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
+  border-bottom: 3px solid;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .carousel__viewport {

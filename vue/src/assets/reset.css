@@ -59,7 +59,7 @@ input[type="text"] {
 }
 body {
   width: 100%;
-  max-width: 90rem;
+  max-width: 100rem;
   margin: 0 auto;
   font: 1.6rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #ddaf6b;
