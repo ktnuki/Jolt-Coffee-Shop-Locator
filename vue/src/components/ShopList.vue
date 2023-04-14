@@ -53,6 +53,7 @@ export default {
       selectedValue: '',
     };
   },
+  
   methods: {
     getDistanceBetweenPoints(latitude1, longitude1, latitude2, longitude2, unit = 'miles') {
     let theta = longitude1 - longitude2;
@@ -66,7 +67,6 @@ export default {
         return Math.round(distance * 1.609344, 2);
     }
     },
-
     onChange(e){
       return this.selectedValue = e.target.value
     },
@@ -98,9 +98,20 @@ export default {
         return outputArr.sort((a, b)=>
             b.rating - a.rating
           )
+      } else if(this.selectedValue == 'filter-by-distance'){
+        let inputArr = this.$store.state.shops; 
+        console.log('coor from store' + this.$store.state.coordinates.lat + ", " + this.$store.state.coordinates.lng)
+        console.log('coor from var' + inputArr[0].latitude + ", " + inputArr[0].longitude)
+        console.log(this.getDistanceBetweenPoints(39.963376247988535, -82.95747552264257, 40.063637433090534, -82.98358451093677 , 'miles'))
+        console.log(this.getDistanceBetweenPoints(this.$store.state.coordinates.lat, this.$store.state.coordinates.lng, inputArr[0].latitude, inputArr[0].longitude, 'miles'))
+        for(let i = 0; i < inputArr.length; i++){
+         inputArr[i].distance = this.getDistanceBetweenPoints(this.$store.state.coordinates.lat, this.$store.state.coordinates.lng, inputArr[i].latitude, inputArr[i].longitude, 'miles')
+        }
+        return inputArr.sort((a, b)=> a.distance - b.distance);
+      }
       }
     },
-  },
+
   created() {
     ShopService.getShopsList()
       .then((response) => {
@@ -117,8 +128,8 @@ export default {
         this.favoritesList = response.data;
       })
       .catch((err) => console.error(err));
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
