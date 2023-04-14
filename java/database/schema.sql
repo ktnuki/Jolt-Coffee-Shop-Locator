@@ -27,7 +27,7 @@ CREATE TABLE coffee_shops (
 	menu_link varchar(255),
 	latitude float(10) NOT NULL,
 	longitude float(10) NOT NULL,
-	distance int(50) DEFAULT 0
+	distance int DEFAULT 0,
 	
 	
 	CONSTRAINT pk_shop_id PRIMARY KEY (shop_id)
@@ -84,3 +84,4 @@ CREATE TABLE favorites (
 );
 
 COMMIT TRANSACTION;
+
