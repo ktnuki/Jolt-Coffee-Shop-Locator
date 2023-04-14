@@ -53,8 +53,7 @@ public class JdbcFavoritedShopDao implements FavoritedShopDao{
 
     @Override
     public void deleteShop(int userId, int shopId) {
-        String sql = "\n" +
-                "DELETE FROM favorites WHERE shop_id = ? AND user_id = ?";
+        String sql = "DELETE FROM favorites WHERE shop_id = ? AND user_id = ?";
         jdbcTemplate.update(sql, shopId, userId);
     }
 }

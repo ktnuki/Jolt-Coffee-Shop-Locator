@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine">
     <div id="nav">
       
       <router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
@@ -139,6 +141,12 @@ There are generic button themes available, though mostly just useful for referen
 .spacer {
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.fancy-text {
+  font-family: 'Tangerine';
+  font-size: 48px;
+  font-weight: bold;
 }
 
 </style>

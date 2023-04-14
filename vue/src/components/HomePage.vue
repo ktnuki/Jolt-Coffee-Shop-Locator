@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Welcome to Jolt! </h1>
+    <h1 class="fancy-text">Welcome to Jolt! </h1>
 
 <section class="carousel" aria-label="Gallery">
   <ol class="carousel__viewport">
