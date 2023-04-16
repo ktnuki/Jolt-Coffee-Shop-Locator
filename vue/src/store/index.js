@@ -52,6 +52,6 @@ export default new Vuex.Store({
     },
     SET_COORDINATES(state, coordinates){
       state.coordinates = coordinates
-    }
-  }
+    },
+ }
 })

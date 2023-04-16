@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS user_address;
 DROP TABLE IF EXISTS shop_address;
 DROP TABLE IF EXISTS favorites;
+DROP TABLE IF EXISTS visited;
 DROP TABLE IF EXISTS address;
 DROP TABLE IF EXISTS hours;
 DROP TABLE IF EXISTS coffee_shops;
@@ -79,6 +80,15 @@ CREATE TABLE favorites (
 	shop_id int,
 	
 	CONSTRAINT pk_user_id_shop_id PRIMARY KEY (user_id, shop_id),
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT fk_shop_id FOREIGN KEY (shop_id) REFERENCES coffee_shops(shop_id)
+);
+
+CREATE TABLE visited (
+	user_id int,
+	shop_id int,
+	
+	CONSTRAINT pk_user_id_shop_visited_id PRIMARY KEY (user_id, shop_id),
 	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT fk_shop_id FOREIGN KEY (shop_id) REFERENCES coffee_shops(shop_id)
 );

@@ -19,9 +19,6 @@ public class CoffeeShop {
     private float latitude;
     private float longitude;
     private int distance;
-
-
-
     private String address;
 
     public CoffeeShop(){}
@@ -198,4 +195,6 @@ public class CoffeeShop {
     public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
+
+
 }

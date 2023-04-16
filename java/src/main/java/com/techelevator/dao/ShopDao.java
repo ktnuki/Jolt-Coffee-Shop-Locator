@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ShopDao {
     List<CoffeeShop> getShopList();
+
 }
+

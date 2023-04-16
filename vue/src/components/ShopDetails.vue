@@ -138,6 +138,11 @@
     <div class="address">{{ currentshop.address }}</div>
 
     <div>
+      <button v-on:click="addVisitedShop()">Visited</button>
+      <button v-on:click="removeVisitedShop()">UNVisited</button>
+    </div>
+
+    <div>
       <a v-bind:href="currentshop.webLink" target="_blank">
         <button class="weblink">Visit Our Website</button>
       </a>
@@ -171,7 +176,16 @@ export default {
       let shopId = this.currentshop.shopId;
       ShopService.unFavorite(shopId);
     },
-  },
+    addVisitedShop() {
+      let shopId = this.currentshop.shopId;
+      ShopService.addVisited(shopId);
+    },
+    removeVisitedShop() {
+      let shopId = this.currentshop.shopId;
+      ShopService.removeVisited(shopId);
+    }
+
+  }
 };
 </script>
 

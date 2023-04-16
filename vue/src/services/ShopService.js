@@ -16,5 +16,11 @@ export default {
     },
     unFavorite(shopId){
         return axios.delete(`/favorites/${shopId}`)
+    },
+    addVisited(shopId) {
+        return axios.post(`/visited/${shopId}`, shopId)
+    },
+    removeVisited(shopId) {
+        return axios.delete(`/visited/${shopId}`)
     }
 } 
