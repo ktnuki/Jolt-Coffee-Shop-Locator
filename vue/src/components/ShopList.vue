@@ -11,7 +11,8 @@
         <option value="">--------Select Option--------</option>
         <option value="filter-by-favorites">Filter By Favorites</option> 
         <option value="filter-by-rating">Filter By Rating</option> 
-        <option value="filter-by-distance">Filter By Distance</option> 
+        <option value="filter-by-distance">Filter By Distance</option>
+        <option value="filter-by-visited">Filter By Visited</option> 
       </select>
       <button id="get-directions">Get Directions</button>
       
@@ -48,6 +49,7 @@ export default {
   data() {
     return {
       favoritesList: [],
+      visitedList: [],
       isFilterList: false,
       isFilterRating: false,
       selectedValue: '',
@@ -82,6 +84,13 @@ export default {
         this.favoritesList = response.data;
       })
       .catch((err) => console.error(err));
+
+      ShopService.getVisitedList()
+            .then((response) => {
+              this.visitedList = response.data;
+            })
+            .catch((err) => console.error(err));
+
       if ( this.selectedValue == '') {
         return this.$store.state.shops;
       } else if (this.selectedValue == 'filter-by-favorites') {
@@ -104,8 +113,23 @@ export default {
          inputArr[i].distance = this.getDistanceBetweenPoints(this.$store.state.coordinates.lat, this.$store.state.coordinates.lng, inputArr[i].latitude, inputArr[i].longitude, 'miles')
         }
         return inputArr.sort((a, b)=> a.distance - b.distance);
-      }
-      }
+      } else if (this.selectedValue == 'filter-by-visited') {
+              return this.$store.state.shops.filter((shop) => {
+                for (let i = 0; i < this.visitedList.length; i++) {
+                  let output = this.visitedList[i].shopId;
+                  if (shop.shopId == output) {
+                    return shop;
+                  }
+                }
+              })
+           }
+
+      },
+
+      // getVisited() {
+            
+      // }
+  
     },
 
   created() {

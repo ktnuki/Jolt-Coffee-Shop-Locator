@@ -139,7 +139,7 @@
 
     <div>
       <button v-on:click="addVisitedShop()">Visited</button>
-      <button v-on:click="removeVisitedShop()">UNVisited</button>
+      <button v-on:click="removeVisitedShop()">Remove Visited</button>
     </div>
 
     <div>

@@ -22,5 +22,8 @@ export default {
     },
     removeVisited(shopId) {
         return axios.delete(`/visited/${shopId}`)
+    },
+    getVisitedList() {
+        return axios.get('/visited')
     }
 } 

@@ -55,7 +55,7 @@ public class JdbcVisitedShopsDao  implements VisitedShopDao{
     }
 
     @Override
-    public void deleteShop(int userId, int shopId) {
+    public void deleteShop(int shopId, int userId) {
         String sql = "DELETE FROM visited WHERE shop_id = ? AND user_id = ?";
         jdbcTemplate.update(sql, shopId, userId);
     }
