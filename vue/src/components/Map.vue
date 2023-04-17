@@ -1,6 +1,7 @@
 <template>
   <div>
     <GmapMap
+      ref="map"
       :center="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
       :zoom="12"
       style="width: 100%; height: 450px"
@@ -37,6 +38,7 @@
         </gmap-info-window> -->
       </gmap-marker>
     </GmapMap>
+    <button @click="loadDirection()" id="get-directions">Get Directions</button>
   </div>
 </template>
 
@@ -62,10 +64,32 @@ export default {
     setActiveShop(shop) {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
+    loadDirection() {
+      const directionsService = new window.google.maps.DirectionsService();
+      let directionsRenderer = new window.google.maps.DirectionsRenderer();
+      directionsRenderer.setMap(this.$refs.map.$mapObject);
+      this.calculateAndDisplayRoute(directionsService, directionsRenderer);
+    },
+
+    calculateAndDisplayRoute(directionsService, directionsRenderer) {
+      const origin = { lat: this.$store.state.coordinates.lat, lng: this.$store.state.coordinates.lng };
+      const destination = this.$store.state.activeShop.address;
+      console.log(origin, destination);
+      directionsService
+        .route({
+          origin: origin,
+          destination: destination,
+          travelMode: window.google.maps.TravelMode.DRIVING,
+        })
+        .then((response) => {
+          directionsRenderer.setDirections(response);
+        })
+        .catch((error) => alert(error));
+    },
+  },
    /*  openWindow(shop){
       this.toggleInfoWindow = this.toggleInfoWindow === shop.shopId ? null : shop.shopId;
     } */
-  },
   computed: {
     infoWindowPostions() {
       return {
