@@ -76,4 +76,11 @@ export default {
 h1 {
   cursor: default;
 }
+<<<<<<< HEAD
 </style>
+=======
+
+
+
+</style>
+>>>>>>> 4b04ad02fb5befb810474d6e5404e1d652ea26e3

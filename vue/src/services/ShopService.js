@@ -11,7 +11,7 @@ export default {
     getFavoritesList() {
         return axios.get('/favorites')
     },
-    addFavorite(shopId){
+    addFavorite(shopId) {
         return axios.post(`/favorites/${shopId}`, shopId)
     },
     unFavorite(shopId){
@@ -26,4 +26,4 @@ export default {
     getVisitedList() {
         return axios.get('/visited')
     }
-} 
+}
