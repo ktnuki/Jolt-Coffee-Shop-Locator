@@ -14,7 +14,7 @@
         <option value="filter-by-distance">Filter By Distance</option>
         <option value="filter-by-visited">Filter By Visited</option> 
       </select>
-      <button id="get-directions">Get Directions</button>
+      <!-- this is where the direction button lived -->
       
     </div>
 
