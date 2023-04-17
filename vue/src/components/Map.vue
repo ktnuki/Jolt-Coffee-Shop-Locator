@@ -1,11 +1,15 @@
 <template>
   <div>
+  <div id="container">
+    
     <GmapMap
+      id="map"
       ref="map"
       :center="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
       :zoom="12"
-      style="width: 100%; height: 450px"
+      style="width: 100%; height: 400px"
     >
+    
       <gmap-marker
         class="marker"
         :position="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
@@ -38,8 +42,12 @@
         </gmap-info-window> -->
       </gmap-marker>
     </GmapMap>
-    <button @click="loadDirection()" id="get-directions">Get Directions</button>
+    <div id="sidebar"></div>
   </div>
+  <button @click="loadDirection()" id="get-directions">Get Directions</button>
+  <button @click="clearDirection()" id="get-directions">Clear Directions</button>
+
+</div>
 </template>
 
   <script>
@@ -70,10 +78,12 @@ export default {
     loadDirection() {
       if(this.directionsRenderer){
         this.directionsRenderer.setMap(null)
+        this.directionsRenderer.setPanel(null)
       }
       const directionsService = new window.google.maps.DirectionsService();
       this.directionsRenderer = new window.google.maps.DirectionsRenderer();
       this.directionsRenderer.setMap(this.$refs.map.$mapObject);
+      this.directionsRenderer.setPanel(document.getElementById("sidebar"));
       this.calculateAndDisplayRoute(directionsService, this.directionsRenderer);
     },
 
@@ -92,6 +102,10 @@ export default {
         })
         .catch((error) => alert(error));
     },
+    clearDirection(){
+      this.directionsRenderer.setMap(null)
+      this.directionsRenderer.setPanel(null)
+    }
   },
    /*  openWindow(shop){
       this.toggleInfoWindow = this.toggleInfoWindow === shop.shopId ? null : shop.shopId;
@@ -119,5 +133,28 @@ export default {
 .marker {
   width: 5px;
   height: auto;
+}
+#container{
+  height: 400px;
+  display: flex;
+}
+
+#sidebar {
+  flex-basis: 15rem;
+  flex-grow: 1;
+  padding: 1rem;
+  max-width: 30rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  background-color: aliceblue;
+}
+
+#sidebar {
+  flex: 0 1 auto;
+  padding: 0;
+}
+#sidebar > div {
+  padding: 0.5rem;
 }
 </style>
