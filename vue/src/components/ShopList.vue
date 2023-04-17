@@ -1,12 +1,5 @@
 <template>
   <div>
-    <div>
-     <!--  <img v-if="isFilterList" class="image" src="../assets/generic1.png" alt="" />
-      <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" /> -->
-    </div>
-    <div id="nav-buttons">
-    <!--   <button v-if="!isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">Filter Favorites</button>
-      <button v-if="isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">List All Shops</button> -->
       <select name="filterDropdown" @change="onChange($event)" class="form-select form-control">
         <option value="">--------Select Option--------</option>
         <option value="filter-by-favorites">Filter By Favorites</option> 
@@ -14,6 +7,14 @@
         <option value="filter-by-distance">Filter By Distance</option>
         <option value="filter-by-visited">Filter By Visited</option> 
       </select>
+    <div>
+     <!--  <img v-if="isFilterList" class="image" src="../assets/generic1.png" alt="" />
+      <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" /> -->
+    </div>
+    <div id="nav-buttons">
+    <!--   <button v-if="!isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">Filter Favorites</button>
+      <button v-if="isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">List All Shops</button> -->
+ 
       <!-- this is where the direction button lived -->
       
     </div>
