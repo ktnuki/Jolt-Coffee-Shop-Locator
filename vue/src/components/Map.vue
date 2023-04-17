@@ -45,8 +45,11 @@
   <script>
 export default {
   name: "Map",
+  directionsService: null,
+  directionsDisplay: null,
   data() {
     return {
+      
 /*       coordinates: {
         lat: 0,
         lng: 0,
@@ -65,10 +68,13 @@ export default {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
     loadDirection() {
+      if(this.directionsRenderer){
+        this.directionsRenderer.setMap(null)
+      }
       const directionsService = new window.google.maps.DirectionsService();
-      let directionsRenderer = new window.google.maps.DirectionsRenderer();
-      directionsRenderer.setMap(this.$refs.map.$mapObject);
-      this.calculateAndDisplayRoute(directionsService, directionsRenderer);
+      this.directionsRenderer = new window.google.maps.DirectionsRenderer();
+      this.directionsRenderer.setMap(this.$refs.map.$mapObject);
+      this.calculateAndDisplayRoute(directionsService, this.directionsRenderer);
     },
 
     calculateAndDisplayRoute(directionsService, directionsRenderer) {
