@@ -8,7 +8,7 @@
     <!--   <button v-if="!isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">Filter Favorites</button>
       <button v-if="isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">List All Shops</button> -->
       <select name="filterDropdown" @change="onChange($event)" class="form-select form-control">
-        <option value="">--------Select Option--------</option>
+        <option selected>--------Select Option--------</option>
         <option value="filter-by-favorites">Filter By Favorites</option> 
         <option value="filter-by-rating">Filter By Rating</option> 
         <option value="filter-by-distance">Filter By Distance</option>
@@ -187,11 +187,33 @@ export default {
   font-size: 16px;
   color: #9f5a37;
   background-color: #ddaf6b;
-  border: #683012 solid;
+  border: #9f5a37 solid;
   border-width: 2px;
   border-radius: 8px;
   box-shadow: 0 2px #666;
   padding: 5px 15px 5px 15px;
+}
+select:focus {
+  background-color: #ddaf6b;
+  color: #9f5a37;
+  border: #9f5a37 solid;
+  border-width: 2px;
+}
+select {
+  overflow: none;
+}
+
+
+option {
+  color: #9f5a37;
+  background-color: #ddaf6b;
+  border: #9f5a37 solid;
+  border-width: 2px;
+}
+option:focus {
+  background-color: #ddaf6b;
+  border: #9f5a37 solid;
+  border-width: 2px;
 }
 
 .bottom-border{
