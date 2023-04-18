@@ -44,9 +44,6 @@
     </GmapMap>
     <div id="sidebar"></div>
   </div>
-  <button @click="loadDirection()" id="get-directions">Get Directions</button>
-  <button @click="clearDirection()" id="get-directions">Clear Directions</button>
-
 </div>
 </template>
 
@@ -57,7 +54,6 @@ export default {
   directionsDisplay: null,
   data() {
     return {
-      
 /*       coordinates: {
         lat: 0,
         lng: 0,
@@ -75,7 +71,7 @@ export default {
     setActiveShop(shop) {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
-    loadDirection() {
+    loadDirections() {
       if(this.directionsRenderer){
         this.directionsRenderer.setMap(null)
         this.directionsRenderer.setPanel(null)
@@ -102,7 +98,7 @@ export default {
         })
         .catch((error) => alert(error));
     },
-    clearDirection(){
+    clearDirections(){
       this.directionsRenderer.setMap(null)
       this.directionsRenderer.setPanel(null)
     }
@@ -111,12 +107,33 @@ export default {
       this.toggleInfoWindow = this.toggleInfoWindow === shop.shopId ? null : shop.shopId;
     } */
   computed: {
+    runLoadDirections(){
+      return this.$store.state.isGetDirections;
+    },
+    runClearDirections(){
+      return this.$store.state.isClearDirections;
+    },
     infoWindowPostions() {
       return {
         lat: parseFloat(this.$store.state.activeShop.latitude),
         lng: parseFloat(this.$store.state.activeShop.longitude),
       };
     },
+  },
+  watch: {
+      runLoadDirections: function(val) {
+        if(val == true){
+        console.log(val + 'this is the value');
+        this.loadDirections();
+        this.$store.commit('SET_DIRECTIONS');
+      }
+      },
+      runClearDirections: function(val){
+        if(val == true ){
+        this.clearDirections();
+        this.$store.commit('CLEAR_DIRECTIONS');
+        }
+      }
   },
   created() {
     this.$getLocation({})

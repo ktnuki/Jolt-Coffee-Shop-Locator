@@ -43,11 +43,14 @@
       </b-sidebar>
     </div>
     <Map @opensidebar="toggleSidebar()"></Map>
+    <buttons/>
     <shop-list @opensidebar="toggleSidebar()" />
+    
   </div>
 </template>
 
 <script>
+import Buttons from '../components/Buttons.vue';
 import Map from '../components/Map.vue';
 import ShopDetails from "../components/ShopDetails.vue";
 import ShopList from "../components/ShopList.vue";
@@ -57,6 +60,7 @@ export default {
     ShopList,
     ShopDetails,
     Map,
+    Buttons,
   },
   data() {
     return {
@@ -76,4 +80,5 @@ export default {
 h1 {
   cursor: default;
 }
+
 </style>
