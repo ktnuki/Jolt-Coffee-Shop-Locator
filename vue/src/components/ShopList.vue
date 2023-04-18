@@ -12,7 +12,7 @@
       <!-- this is where the direction button lived -->
     </div>
 
-    <h1 class="fancy-text bottom-border">Coffee Shops</h1>
+    <h1 id="coffee-shops-header" class="fancy-text bottom-border">Coffee Shops</h1>
     <div class="shoplist">
       <div v-for="shop in getFavorites()" v-bind:key="shop.id">
         <div
@@ -164,7 +164,7 @@ export default {
 #nav-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-right: 10%;
   margin-left: 10%;
   margin-bottom: 20px;
@@ -177,6 +177,9 @@ export default {
   border-bottom: #9f5a37 solid;
   border-width: 3px;
   padding-bottom: 5px;
+}
+#coffee-shop-header {
+  padding-top: 0px;
 }
 
 
