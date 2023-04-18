@@ -50,6 +50,10 @@ textarea {
   line-height: 1.15;
   margin: 0;
 }
+select:active {
+  background-color: #b48f58;
+
+}
 button,
 input {
   overflow: visible;
