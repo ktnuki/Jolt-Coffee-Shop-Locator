@@ -18,6 +18,9 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    dropdownSelection: '',
+    isGetDirections: false,
+    isClearDirections: false,
     activeShop: [],
     shops: [],
     token: currentToken || '',
@@ -53,5 +56,15 @@ export default new Vuex.Store({
     SET_COORDINATES(state, coordinates){
       state.coordinates = coordinates
     },
+    SET_DIRECTIONS(state){
+      state.isGetDirections = !state.isGetDirections;
+    },
+    CLEAR_DIRECTIONS(state){
+      state.isClearDirections = !state.isClearDirections
+    },
+    SET_DROPDOWN_SELECTION(state, selection){
+      state.dropdownSelection = selection;
+      console.log("in store mutation. Val of dropdown = " + state.dropdownSelection)
+    }
  }
 })

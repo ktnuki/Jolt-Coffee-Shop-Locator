@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Shops from '../views/Shops.vue'
 import Details from '../views/Details.vue'
+import AddShops from '../views/AddShops.vue'
 
 Vue.use(Router)
 
@@ -61,6 +62,14 @@ const router = new Router({
       component: Shops,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/addshops",
+      name: "add-shops",
+      component: AddShops,
+      meta: {
+        requiresAuth: true,
       }
     },
     {

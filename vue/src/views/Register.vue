@@ -17,6 +17,9 @@
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
+      <div>
+        Are you a coffee shop owner? Check here: <input type="checkbox" class="ownerCheck" v-model="isOwner">
+      </div>
       <button type="submit">Create Account</button>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
@@ -34,17 +37,31 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: '',
+
       },
+      isOwner: false,
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
     };
   },
   methods: {
+
+    setRole() {
+    if (this.isOwner == true) {
+      this.user.role = 'owner'
+    } else {
+      this.user.role = 'user'
+    }
+  },
     register() {
+
+      this.setRole();
+
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+
       } else {
         authService
           .register(this.user)

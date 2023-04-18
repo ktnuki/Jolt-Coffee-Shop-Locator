@@ -1,12 +1,6 @@
 <template>
   <div>
-      <select name="filterDropdown" @change="onChange($event)" class="form-select form-control">
-        <option value="">--------Select Option--------</option>
-        <option value="filter-by-favorites">Filter By Favorites</option> 
-        <option value="filter-by-rating">Filter By Rating</option> 
-        <option value="filter-by-distance">Filter By Distance</option>
-        <option value="filter-by-visited">Filter By Visited</option> 
-      </select>
+
     <div>
      <!--  <img v-if="isFilterList" class="image" src="../assets/generic1.png" alt="" />
       <img v-if="!isFilterList" class="image" src="../assets/generic2.png" alt="" /> -->
@@ -16,7 +10,6 @@
       <button v-if="isFilterList" @click="isFilterList = !isFilterList" class="filter-favorites">List All Shops</button> -->
  
       <!-- this is where the direction button lived -->
-      
     </div>
 
     <h1 class="fancy-text bottom-border">Coffee Shops</h1>
@@ -70,9 +63,7 @@ export default {
         return Math.round(distance * 1.609344, 2);
     }
     },
-    onChange(e){
-      return this.selectedValue = e.target.value
-    },
+
     methodToRunOnSelect(payload) {
             this.object = payload;
     },
@@ -92,9 +83,9 @@ export default {
             })
             .catch((err) => console.error(err));
 
-      if ( this.selectedValue == '') {
+      if ( this.$store.state.dropdownSelection == '') {
         return this.$store.state.shops;
-      } else if (this.selectedValue == 'filter-by-favorites') {
+      } else if (this.$store.state.dropdownSelection == 'filter-by-favorites') {
         return this.$store.state.shops.filter((shop) => {
           for (let i = 0; i < this.favoritesList.length; i++) {
             let output = this.favoritesList[i].shopId;
@@ -103,18 +94,18 @@ export default {
             }
           }
         })
-      } else if(this.selectedValue == 'filter-by-rating'){
+      } else if(this.$store.state.dropdownSelection == 'filter-by-rating'){
         let outputArr = this.$store.state.shops; 
         return outputArr.sort((a, b)=>
             b.rating - a.rating
           )
-      } else if(this.selectedValue == 'filter-by-distance'){
+      } else if(this.$store.state.dropdownSelection == 'filter-by-distance'){
         let inputArr = this.$store.state.shops; 
         for(let i = 0; i < inputArr.length; i++){
          inputArr[i].distance = this.getDistanceBetweenPoints(this.$store.state.coordinates.lat, this.$store.state.coordinates.lng, inputArr[i].latitude, inputArr[i].longitude, 'miles')
         }
         return inputArr.sort((a, b)=> a.distance - b.distance);
-      } else if (this.selectedValue == 'filter-by-visited') {
+      } else if (this.$store.state.dropdownSelection == 'filter-by-visited') {
               return this.$store.state.shops.filter((shop) => {
                 for (let i = 0; i < this.visitedList.length; i++) {
                   let output = this.visitedList[i].shopId;
@@ -180,19 +171,6 @@ export default {
 }
 .highlights{
   width: 20px;
-}
-
-.form-select{
-  width: min-content;
-  height: max-content;
-  font-size: 16px;
-  color: #9f5a37;
-  background-color: #ddaf6b;
-  border: #683012 solid;
-  border-width: 2px;
-  border-radius: 8px;
-  box-shadow: 0 2px #666;
-  padding: 5px 15px 5px 15px;
 }
 
 .bottom-border{
