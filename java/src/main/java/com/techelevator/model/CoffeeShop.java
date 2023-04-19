@@ -22,10 +22,11 @@ public class CoffeeShop {
     private String address;
     private int addressId;
     private int hoursId;
+    private boolean isApproved;
 
     public CoffeeShop(){}
 
-    public CoffeeShop(int shopId, String shop, String image, String webLink, int price, int rating, String highlights, String menuLink, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, float latitude, float longitude, int distance, String address, int addressId, int hoursId) {
+    public CoffeeShop(int shopId, String shop, String image, String webLink, int price, int rating, String highlights, String menuLink, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, float latitude, float longitude, int distance, String address, int addressId, int hoursId, boolean isApproved) {
         this.shopId = shopId;
         this.shop = shop;
         this.image = image;
@@ -47,6 +48,7 @@ public class CoffeeShop {
         this.address = address;
         this.addressId = addressId;
         this.hoursId = hoursId;
+        this.isApproved = isApproved;
     }
 
     public int getDistance() {
@@ -215,5 +217,13 @@ public class CoffeeShop {
 
     public void setHoursId(int hoursId) {
         this.hoursId = hoursId;
+    }
+
+    public boolean isApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(boolean approved) {
+        isApproved = approved;
     }
 }
