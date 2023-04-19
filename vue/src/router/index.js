@@ -8,6 +8,7 @@ import store from '../store/index'
 import Shops from '../views/Shops.vue'
 import Details from '../views/Details.vue'
 import AddShops from '../views/AddShops.vue'
+import AdminPage from '../views/AdminPage.vue'
 
 Vue.use(Router)
 
@@ -78,6 +79,14 @@ const router = new Router({
       component: Details,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/admin",
+      name: "admin",
+      component: AdminPage,
+      meta: {
+        requiresAuth: true
       }
     }
   ]

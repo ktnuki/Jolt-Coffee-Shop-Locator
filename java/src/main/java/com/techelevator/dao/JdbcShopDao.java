@@ -56,6 +56,89 @@ public class JdbcShopDao implements ShopDao {
     }
 
     @Override
+    public List<CoffeeShop> getShopListForAdmin() {
+        List<CoffeeShop> shopsOutput = new ArrayList<>();
+        String sql = "SELECT coffee_shops.shop_id, distance,shop_name, main_image, website_link, price_range, rating, highlights, menu_link, address, sunday, monday, tuesday, wednesday, thursday, friday, saturday, latitude, longitude, isapproved\n" +
+                "FROM coffee_shops\n" +
+                "JOIN shop_address ON shop_address.shop_id = coffee_shops.shop_id\n" +
+                "JOIN address ON shop_address.address_id = address.address_id\n" +
+                "JOIN hours ON hours.shop_id = coffee_shops.shop_id\n" +
+                "ORDER BY shop_name";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            CoffeeShop shop = new CoffeeShop();
+            shop.setShopId(results.getInt("shop_id"));
+            shop.setShop(results.getString("shop_name"));
+            shop.setImage(results.getString("main_image"));
+            shop.setWebLink(results.getString("website_link"));
+            shop.setPrice(results.getInt("price_range"));
+            shop.setRating(results.getInt("rating"));
+            shop.setHighlights(results.getString("highlights"));
+            shop.setMenuLink(results.getString("menu_link"));
+            shop.setAddress(results.getString("address"));
+            shop.setSunday(results.getString("sunday"));
+            shop.setMonday(results.getString("monday"));
+            shop.setTuesday(results.getString("tuesday"));
+            shop.setWednesday(results.getString("wednesday"));
+            shop.setThursday(results.getString("thursday"));
+            shop.setFriday(results.getString("friday"));
+            shop.setSaturday(results.getString("saturday"));
+            shop.setLatitude(results.getFloat("latitude"));
+            shop.setLongitude(results.getFloat("longitude"));
+            shop.setDistance(results.getInt("distance"));
+            shop.setApproved(results.getBoolean("isapproved"));
+            shopsOutput.add(shop);
+        }
+        return shopsOutput;
+    }
+
+    @Override
+    public List<CoffeeShop> approveShop(int shopId){
+        String sql = "UPDATE coffee_shops\n" +
+                "SET isApproved = true\n" +
+                "WHERE shop_id = ?";
+        jdbcTemplate.update(sql, shopId);
+        List<CoffeeShop> shopsOutput = getShopListForAdmin();
+        return shopsOutput;
+    }
+
+    @Override
+    public List<CoffeeShop> unApproveShop(int shopId) {
+        String sql = "UPDATE coffee_shops\n" +
+                "SET isApproved = false\n" +
+                "WHERE shop_id = ?";
+        jdbcTemplate.update(sql, shopId);
+        List<CoffeeShop> shopsOutput = getShopListForAdmin();
+        return shopsOutput;
+    }
+
+    @Override
+    public List<CoffeeShop> deleteShop(int shopId) {
+        String sql = "DELETE FROM shop_address\n" +
+                "WHERE shop_id = ?\n" +
+                "RETURNING address_id\n";
+        int addressId = jdbcTemplate.queryForObject(sql, Integer.class, shopId);
+        String sql2 = "DELETE FROM address\n" +
+                "WHERE address_id = ?";
+        jdbcTemplate.update(sql2, addressId);
+        String sql3 = "DELETE FROM hours\n" +
+                "WHERE shop_id = ?\n";
+        jdbcTemplate.update(sql3, shopId);
+        String sql4 = "DELETE FROM favorites\n" +
+                "WHERE shop_id = ?\n";
+        jdbcTemplate.update(sql4, shopId);
+        String sql5 = "DELETE FROM visited\n" +
+                "WHERE shop_id = ?\n";
+        jdbcTemplate.update(sql5, shopId);
+        String sql6 = "DELETE FROM coffee_shops\n" +
+                "WHERE shop_id = ?";
+        jdbcTemplate.update(sql6, shopId);
+
+        List<CoffeeShop> shopsOutput = getShopListForAdmin();
+        return shopsOutput;
+    }
+
+    @Override
     public void addNewShop(CoffeeShop coffeeShop) {
 
         String sql = "INSERT INTO coffee_shops (shop_name, main_image, website_link, price_range, rating, highlights, menu_link, latitude, longitude) " +

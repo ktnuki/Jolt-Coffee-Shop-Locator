@@ -24,6 +24,10 @@ public class ShopController {
         return shopDao.getShopList();
     }
 
+    @RequestMapping(path = "/admin", method = RequestMethod.GET)
+    public List<CoffeeShop> getShopListForAdmin() {
+        return shopDao.getShopListForAdmin();
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/addshops", method = RequestMethod.POST)
@@ -31,5 +35,19 @@ public class ShopController {
         shopDao.addNewShop(coffeeShop);
     }
 
+    @RequestMapping(path= "/approved/{id}", method = RequestMethod.PUT)
+    public List<CoffeeShop> approveShop(@PathVariable("id") int shopId) {
+        return shopDao.approveShop(shopId);
 
+    }
+
+    @RequestMapping(path= "/unapproved/{id}", method = RequestMethod.PUT)
+    public List<CoffeeShop> unApproveShop(@PathVariable("id") int shopId) {
+        return shopDao.unApproveShop(shopId);
+    }
+
+    @RequestMapping(path= "/delete/{id}", method = RequestMethod.DELETE)
+    public List<CoffeeShop> deleteShop(@PathVariable("id") int shopId) {
+        return shopDao.deleteShop(shopId);
+    }
 }

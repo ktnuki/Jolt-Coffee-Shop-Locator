@@ -9,6 +9,9 @@ export default {
     getShopsList() {
         return axios.get('/shops');
     },
+    getAdminShopsList() {
+        return axios.get('/admin');
+    },
     getShopById(id) {
         return axios.get(`/details${id}`)
     },
@@ -34,6 +37,14 @@ export default {
         // const url = '/addshops';
         // return shopsApi.post(url, shop)
         return axios.post('/addshops', shop)
-
+    },
+    approved(shopId) {
+        return axios.put(`/approved/${shopId}`)
+    },
+    unApproved(shopId) {
+        return axios.put(`/unapproved/${shopId}`)
+    },
+    deleteShop(shopId) {
+        return axios.delete(`/delete/${shopId}`)
     }
 }

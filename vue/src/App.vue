@@ -11,6 +11,8 @@
       <router-link class="link" v-if="isOwner" v-bind:to="{ name: 'add-shops' }">Add Your Coffee Shop&nbsp;|&nbsp;</router-link>
       <router-link class="link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <router-link class="link" v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
+      <router-link class="link" v-if="isAdmin" v-bind:to="{ name: 'admin' }">&nbsp;|&nbsp;Admin&nbsp;|&nbsp;</router-link>
+
 
     <div class="spacer"></div>
     </div>
@@ -37,7 +39,21 @@ export default {
         }
       })
       return ownerRole;
-    } 
+    },
+     isAdmin() {
+
+      if(!this.$store.state.user.authorities) {
+        return false;
+      }
+      let adminRole = false;
+
+      this.$store.state.user.authorities.forEach(role => {
+        if(role.name == 'ROLE_ADMIN') {
+          adminRole = true;
+        }
+      })
+      return adminRole;
+    }  
   }
   
 }
