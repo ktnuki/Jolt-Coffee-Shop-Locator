@@ -4,8 +4,10 @@
   
       <img :src="getImageURL(currentshop.image)" alt="coffee shop img" />
       <div id="buttons">
-        <button @click="addFavoriteShop()">Favorite</button>
-        <button @click="unfavoriteShop()">Unfavorite</button>
+        <button @click="(favorited = !favorited), evaluateFavorited()">
+          {{ displayIsFavorited() }} </button>
+        <button @click="(checked = !checked), evaluatedVisited()">
+          {{ displayVisited() }} </button>
       </div>
     </div>
     <div class="highlight-header, headers">Highlights:</div>
@@ -132,12 +134,6 @@
     </div>
     <div class="headers">Address:</div>
     <div class="address">{{ currentshop.address }}</div>
-
-    <div>
-      <button v-on:click="addVisitedShop()">Visited</button>
-      <button v-on:click="removeVisitedShop()">Remove Visited</button>
-    </div>
-
     <div>
       <a v-bind:href="currentshop.webLink" target="_blank">
         <button class="weblink">Visit Our Website</button>
@@ -153,14 +149,68 @@ export default {
   props: ["isSideBarOpen"],
 
   data() {
-    return {};
+    return {
+      checked: false,
+      favorited: false,
+    };
   },
   computed: {
     currentshop() {
       return this.$store.state.activeShop;
     },
+    currentshopFavorited() {
+      return this.$store.state.activeShop;
+    },
+  },
+  watch: {
+    currentshop: function (activeShop) {
+      for (let i = 0; i < this.$store.state.visitedList.length; i++) {
+        let output = this.$store.state.visitedList[i].shopId;
+        if (output == activeShop.shopId) {
+          return (this.checked = true);
+        }
+      }
+      return (this.checked = false);
+    },
+    currentshopFavorited: function (activeShop) {
+      for (let i = 0; i < this.$store.state.favoritesList.length; i++) {
+        let output = this.$store.state.favoritesList[i].shopId;
+        if (output == activeShop.shopId) {
+          return (this.favorited = true);
+        }
+      }
+      return (this.favorited = false);
+    },
   },
   methods: {
+    evaluatedVisited() {
+      if (this.checked == true) {
+        this.addVisitedShop();
+      } else if (this.checked == false) {
+        this.removeVisitedShop();
+      }
+    },
+    evaluateFavorited() {
+      if (this.favorited == true) {
+        this.addFavoriteShop();
+      } else if (this.favorited == false) {
+        this.unfavoriteShop();
+      }
+    },
+    displayVisited() {
+      if (this.checked == true) {
+        return "Visited";
+      } else {
+        return "Not Visited";
+      }
+    },
+    displayIsFavorited() {
+      if (this.favorited == false) {
+        return "Favorite";
+      } else {
+        return "UnFavorite";
+      }
+    },
     getImageURL(pic) {
       return require("../assets/" + pic);
     },
@@ -179,9 +229,8 @@ export default {
     removeVisitedShop() {
       let shopId = this.currentshop.shopId;
       ShopService.removeVisited(shopId);
-    }
-
-  }
+    },
+  },
 };
 </script>
 
@@ -246,7 +295,7 @@ img {
 }
 .highlights {
   width: 40px;
-  padding-right: 10px; 
+  padding-right: 10px;
 }
 .coffee-cups {
   width: 50px;

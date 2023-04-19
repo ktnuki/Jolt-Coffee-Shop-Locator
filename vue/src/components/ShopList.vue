@@ -42,8 +42,8 @@ export default {
 
   data() {
     return {
-      favoritesList: [],
-      visitedList: [],
+      /* favoritesList: [],
+      visitedList: [], */
       isFilterList: false,
       isFilterRating: false,
       selectedValue: '',
@@ -73,13 +73,13 @@ export default {
     getFavorites() {
       ShopService.getFavoritesList()
       .then((response) => {
-        this.favoritesList = response.data;
+        this.$store.commit("SET_FAVORITES_LIST", response.data)
       })
       .catch((err) => console.error(err));
 
       ShopService.getVisitedList()
             .then((response) => {
-              this.visitedList = response.data;
+              this.$store.commit('SET_VISITED_LIST', response.data)
             })
             .catch((err) => console.error(err));
 
@@ -87,8 +87,8 @@ export default {
         return this.$store.state.shops;
       } else if (this.$store.state.dropdownSelection == 'filter-by-favorites') {
         return this.$store.state.shops.filter((shop) => {
-          for (let i = 0; i < this.favoritesList.length; i++) {
-            let output = this.favoritesList[i].shopId;
+          for (let i = 0; i < this.$store.state.favoritesList.length; i++) {
+            let output = this.$store.state.favoritesList[i].shopId;
             if (shop.shopId == output) {
               return shop;
             }
@@ -107,8 +107,8 @@ export default {
         return inputArr.sort((a, b)=> a.distance - b.distance);
       } else if (this.$store.state.dropdownSelection == 'filter-by-visited') {
               return this.$store.state.shops.filter((shop) => {
-                for (let i = 0; i < this.visitedList.length; i++) {
-                  let output = this.visitedList[i].shopId;
+                for (let i = 0; i < this.$store.state.visitedList.length; i++) {
+                  let output = this.$store.state.visitedList[i].shopId;
                   if (shop.shopId == output) {
                     return shop;
                   }
@@ -137,7 +137,7 @@ export default {
     //use it to filter in computed
     ShopService.getFavoritesList()
       .then((response) => {
-        this.favoritesList = response.data;
+        this.$store.commit("SET_FAVORITES_LIST", response.data)
       })
       .catch((err) => console.error(err));
   }

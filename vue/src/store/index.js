@@ -18,6 +18,8 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    favoritesList: [],
+    visitedList: [],
     dropdownSelection: '',
     isGetDirections: false,
     isClearDirections: false,
@@ -65,6 +67,12 @@ export default new Vuex.Store({
     SET_DROPDOWN_SELECTION(state, selection){
       state.dropdownSelection = selection;
       console.log("in store mutation. Val of dropdown = " + state.dropdownSelection)
-    }
+    },
+    SET_FAVORITES_LIST(state, favoritesList){
+      state.favoritesList = favoritesList;
+    },
+    SET_VISITED_LIST(state, visitedList){
+      state.visitedList = visitedList;
+    },
  }
 })
