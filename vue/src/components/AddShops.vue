@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-on:submit.prevent="addNewShop">
+    <form v-on:submit.prevent="addNewShop" class="coffeeShopForm">
       <label for="coffeeShopName">Coffee Shop Name: </label>
       <input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" required><br>
 
@@ -11,38 +11,40 @@
       <label for="coffeeShopWebLink"> Coffee Shop Website Link: </label>
       <input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink" required><br>
 
-      <label for="coffeeShopMenuLink"> Coffee Shop Menu Link: </label>
-      <input type="text" v-model="newShop.menuLink" id="coffeeShopMenuLink" name="coffeeShopMenuLink" required><br>
-
       <label for="coffeeShopAddress"> Address: </label>
       <input type="text" v-model="newShop.address" id="coffeeShopAddress" name="coffeeShopAddress" required><br>
 
+      <p class="instructions">You can enter your latitude and longitude below to have your shop show up on our map. <br>
+                              You can use the following site to convert your address: <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">latlong.net</a>
+      </p>
       <label for="latitude"> Latitude: </label>
       <input type="text" v-model.number="newShop.latitude" id="latitude" name="latitude" required><br>
 
       <label for="longitude"> Longitude: </label>
       <input type="text"  v-model.number="newShop.longitude" id="longitude" name="longitude" required><br>
 
-      <label for="coffeeShopMonday"> Enter Shop Hours for Monday: </label>
-      <input type="text" v-model="newShop.monday" id="coffeeShopMonday" name="coffeeShopMonday" required><br>
+      <p>Enter Shop Hours:<p>
+      <p class="instructions">Please enter your shop hours for each day of the week formatted as 9a-9p. If closed, please type "closed".</p>
+      <label for="coffeeShopMonday">Monday: </label>
+      <input type="text" v-model="newShop.monday" id="coffeeShopHours" name="coffeeShopMonday" required><br>
 
-      <label for="coffeeShopTuesday"> Enter Shop Hours for Tuesday: </label>
-      <input type="text" v-model="newShop.tuesday" id="coffeeShopTuesday" name="coffeeShopTuesday" required><br>
+      <label for="coffeeShopTuesday">Tuesday: </label>
+      <input type="text" v-model="newShop.tuesday" id="coffeeShopHours" name="coffeeShopTuesday" required><br>
 
-      <label for="coffeeShopWednesday"> Enter Shop Hours for Wednesday: </label>
-      <input type="text" v-model="newShop.wednesday" id="coffeeShopWednesday" name="coffeeShopWednesday" required><br>
+      <label for="coffeeShopWednesday">Wednesday: </label>
+      <input type="text" v-model="newShop.wednesday" id="coffeeShopHours" name="coffeeShopWednesday" required><br>
 
-      <label for="coffeeShopThursday"> Enter Shop Hours for Thursday: </label>
-      <input type="text" v-model="newShop.thursday" id="coffeeShopThursday" name="coffeeShopThursday" required><br>
+      <label for="coffeeShopThursday">Thursday: </label>
+      <input type="text" v-model="newShop.thursday" id="coffeeShopHours" name="coffeeShopThursday" required><br>
 
-      <label for="coffeeShopFriday"> Enter Shop Hours for Friday: </label>
-      <input type="text" v-model="newShop.friday" id="coffeeShopFriday" name="coffeeShopFriday" required><br>
+      <label for="coffeeShopFriday">Friday: </label>
+      <input type="text" v-model="newShop.friday" id="coffeeShopHours" name="coffeeShopFriday" required><br>
 
-      <label for="coffeeShopSaturday"> Enter Shop Hours for Saturday: </label>
-      <input type="text" v-model="newShop.saturday" id="coffeeShopSaturday" name="coffeeShopSaturday" required><br>
+      <label for="coffeeShopSaturday">Saturday: </label>
+      <input type="text" v-model="newShop.saturday" id="coffeeShopHours" name="coffeeShopSaturday" required><br>
 
-      <label for="coffeeShopSunday"> Enter Shop Hours for Sunday: </label>
-      <input type="text" v-model="newShop.sunday" id="coffeeShopSunday" name="coffeeShopSunday" required><br>
+      <label for="coffeeShopSunday">Sunday: </label>
+      <input type="text" v-model="newShop.sunday" id="coffeeShopHours" name="coffeeShopSunday" required><br>
 
       <label for="coffeeShopPrice"> Coffee Shop Price Range: </label>
       <input type="text" v-model.number="newShop.price" id="coffeeShopPrice" name="coffeeShopPrice" required><br>
@@ -52,26 +54,18 @@
       <input type="text" v-model.number="newShop.rating" id="coffeeShopRating" name="coffeeShopRating" required><br>
       <p class="instructions">Please provide your shop's rating based on Google Reviews to the nearest whole number.</p>
 
-      <label for="coffeeShopHighlights"> Coffee Shop Highlights: </label>
-      <input type="checkbox" v-model="newShop.highlights" name="food" id="food">Food
-      <input type="checkbox" v-model="newShop.highlights" name="desserts" id="desserts">Desserts
-      <input type="checkbox" v-model="newShop.highlights" name="smoothies" id="smoothies">Smoothies
-      <input type="checkbox" v-model="newShop.highlights" name="grounds" id="grounds">Beans and/or grounds
-      <input type="checkbox" v-model="newShop.highlights" name="alcohol" id="alcohol">Alcohol
-      <input type="checkbox" v-model="newShop.highlights" name="non-dairy" id="non-dairy">Non-dairy alternatives
-      <input type="checkbox" v-model="newShop.highlights" name="outdoor seating" id="outdoor seating">Outdoor seating
-      <input type="checkbox" v-model="newShop.highlights" name="dog friendly" id="pet friendly">Pet friendly<br>
-
-
+      <label for="coffeeShopHighlights" class="coffeeShopHighlights"> Coffee Shop Highlights: </label>
+<div class="highlightBox">
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="food" id="food" value="food" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Food</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="desserts" id="desserts" value="dessert" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Desserts</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="smoothies" id="smoothies" value="smoothies" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Smoothies</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="grounds" id="grounds" value="bean" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Beans and/or grounds</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="alcohol" id="alcohol" value="alcohol" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Alcohol</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="non-dairy" id="non-dairy" value="non-dairy" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Non-dairy alternatives</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="outdoor seating" id="outdoor seating" value="outdoor seating" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Outdoor seating</p>
+      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="dog friendly" id="dog friendly" value="dog friendly" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Pet friendly<br></p>
+</div>
       <input type="submit">
-
-
-      <!-- 
-        ? The address will have to go through Google Geocoder API to be converted into lat & long 
-        Submit needs to put this in an "pending" database table
-        Admin needs a page only they can view to be able to approve/deny shop requests 
-        Approved shops need to go to the database, denied shops should be deleted from the database
-      -->
 
 
     </form>
@@ -85,6 +79,7 @@ export default {
 
     data(){
       return {
+        newHighlights: [],
         newShop: {
           shop: "",
           image: "",
@@ -108,6 +103,19 @@ export default {
     },
     methods: {
       addNewShop(){
+
+        let output = "";
+        for (let i = 0; i < this.newHighlights.length; i++) {
+          if (this.newHighlights[i] != "") {
+            output += this.newHighlights[i] + " ";
+          } 
+        }
+
+        this.newShop.highlights = output;
+      console.log(this.newShop.highlights);
+      console.log("output=" + output);
+
+
         ShopService.addNewShop(this.newShop).then((response) => {
           if(response.status == 201) {
             this.$router.push('/shops');
@@ -121,7 +129,45 @@ export default {
 
 <style>
 .instructions {
-  font-size: 10px;
+  font-size: 14px;
 }
+
+.coffeeShopForm {
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 76%;
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+.highlightBox {
+  text-align: left;
+  width: 35%;
+  margin-left: 35%;
+  margin-right: 30%;
+}
+
+ .checkbox .checkboxLabel {
+   width: 10%;
+  display: flex;
+  flex-direction: row;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+.checkbox {
+  justify-items: left;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.coffeeShopHighlights > p {
+ width: 20%;
+  justify-content: left;
+  align-items: flex-start;
+  text-align: left;
+}
+
 
 </style>

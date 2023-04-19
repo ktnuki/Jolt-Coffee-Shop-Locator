@@ -26,6 +26,7 @@ public class JdbcShopDao implements ShopDao {
                 "JOIN shop_address ON shop_address.shop_id = coffee_shops.shop_id\n" +
                 "JOIN address ON shop_address.address_id = address.address_id\n" +
                 "JOIN hours ON hours.shop_id = coffee_shops.shop_id\n" +
+                           //TODO: add true only
                 "ORDER BY shop_name";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
@@ -80,5 +81,6 @@ public class JdbcShopDao implements ShopDao {
 
 
     }
+
 
 }

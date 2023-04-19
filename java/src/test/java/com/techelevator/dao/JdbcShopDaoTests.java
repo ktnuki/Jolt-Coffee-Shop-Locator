@@ -11,7 +11,7 @@ import java.util.List;
 public class JdbcShopDaoTests extends BaseDaoTests{
 
     private static final CoffeeShop COFFEE_SHOP_1 = new CoffeeShop(1,"test_name", "test_image", "test_link", 1, 1, "test_highlights", "test_menu",
-            "9-5", "9-5", "9-5", "9-5", "9-5", "9-5", "9-5", 39.91948f,-82.99417f, 10 , "test_address", 1, 1 );
+            "9-5", "9-5", "9-5", "9-5", "9-5", "9-5", "9-5", 39.91948f,-82.99417f, 10 , "test_address", 1, 1);
 
     private JdbcShopDao dao;
 

@@ -29,6 +29,7 @@ CREATE TABLE coffee_shops (
 	latitude float(10) NOT NULL,
 	longitude float(10) NOT NULL,
 	distance int DEFAULT 0,
+	isApproved boolean DEFAULT false,
 	
 	
 	CONSTRAINT pk_shop_id PRIMARY KEY (shop_id)
