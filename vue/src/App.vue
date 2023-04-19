@@ -20,6 +20,7 @@
 <script>
 
 export default {
+  
   computed: {
     isOwner() {
 
