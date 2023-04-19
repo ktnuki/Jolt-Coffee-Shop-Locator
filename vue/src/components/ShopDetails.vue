@@ -1,9 +1,7 @@
 <template>
   <div id="shopdetails">
     <div id="sidebar-img">
-      <!-- <img :src="require(`../assets/${currentshop.image}`)"
- alt="coffee shop img"/>
-       -->
+  
       <img :src="getImageURL(currentshop.image)" alt="coffee shop img" />
       <div id="buttons">
         <button @click="(favorited = !favorited), evaluateFavorited()">
@@ -280,7 +278,7 @@ img {
 }
 #buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 12px;
@@ -304,12 +302,4 @@ img {
   padding-right: 10px;
 }
 
-.heart {
-  font-size: 25px;
-  color: red;
-}
-.heart-des {
-  font-size: 25px;
-  color: #aaa;
-}
 </style>

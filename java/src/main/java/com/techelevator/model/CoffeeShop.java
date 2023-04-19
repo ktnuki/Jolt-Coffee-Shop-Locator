@@ -20,10 +20,12 @@ public class CoffeeShop {
     private float longitude;
     private int distance;
     private String address;
+    private int addressId;
+    private int hoursId;
 
     public CoffeeShop(){}
 
-    public CoffeeShop(int shopId, String shop, String image, String webLink, int price, int rating, String highlights, String menuLink, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, float latitude, float longitude, int distance, String address) {
+    public CoffeeShop(int shopId, String shop, String image, String webLink, int price, int rating, String highlights, String menuLink, String monday, String tuesday, String wednesday, String thursday, String friday, String saturday, String sunday, float latitude, float longitude, int distance, String address, int addressId, int hoursId) {
         this.shopId = shopId;
         this.shop = shop;
         this.image = image;
@@ -43,6 +45,8 @@ public class CoffeeShop {
         this.longitude = longitude;
         this.distance = distance;
         this.address = address;
+        this.addressId = addressId;
+        this.hoursId = hoursId;
     }
 
     public int getDistance() {
@@ -197,4 +201,19 @@ public class CoffeeShop {
     }
 
 
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
+
+    public int getHoursId() {
+        return hoursId;
+    }
+
+    public void setHoursId(int hoursId) {
+        this.hoursId = hoursId;
+    }
 }

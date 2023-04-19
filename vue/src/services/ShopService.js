@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+// const shopsApi = axios.create({
+//     baseURL: "http://localhost:8080"
+// })
+
 export default {
 
     getShopsList() {
@@ -25,5 +29,11 @@ export default {
     },
     getVisitedList() {
         return axios.get('/visited')
+    },
+    addNewShop(shop) {
+        // const url = '/addshops';
+        // return shopsApi.post(url, shop)
+        return axios.post('/addshops', shop)
+
     }
 }

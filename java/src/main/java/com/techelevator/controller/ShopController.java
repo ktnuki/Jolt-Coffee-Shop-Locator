@@ -3,10 +3,8 @@ package com.techelevator.controller;
 import com.techelevator.dao.JdbcShopDao;
 import com.techelevator.dao.ShopDao;
 import com.techelevator.model.CoffeeShop;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +24,11 @@ public class ShopController {
         return shopDao.getShopList();
     }
 
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/addshops", method = RequestMethod.POST)
+    public void addNewShop(@RequestBody CoffeeShop coffeeShop) {
+        shopDao.addNewShop(coffeeShop);
+    }
 
 }

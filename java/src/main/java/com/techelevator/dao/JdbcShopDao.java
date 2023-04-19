@@ -54,6 +54,31 @@ public class JdbcShopDao implements ShopDao {
         return shopsOutput;
     }
 
+    @Override
+    public void addNewShop(CoffeeShop coffeeShop) {
 
+        String sql = "INSERT INTO coffee_shops (shop_name, main_image, website_link, price_range, rating, highlights, menu_link, latitude, longitude) " +
+                "VALUES (?,?,?,?,?,?,?,?,?) RETURNING shop_id; ";
+        int shopId = jdbcTemplate.queryForObject(sql, Integer.class, coffeeShop.getShop(), coffeeShop.getImage(), coffeeShop.getWebLink(),
+                coffeeShop.getPrice(), coffeeShop.getRating(), coffeeShop.getHighlights(), coffeeShop.getMenuLink(), coffeeShop.getLatitude(), coffeeShop.getLongitude());
+        coffeeShop.setShopId(shopId);
+
+        String sql2 = "INSERT INTO address (address) " +
+                "VALUES (?) RETURNING address_id; ";
+        int address = jdbcTemplate.queryForObject(sql2, Integer.class, coffeeShop.getAddress());
+        coffeeShop.setAddressId(address);
+
+        String sql3 = "INSERT INTO hours (shop_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday) " +
+                "VALUES (?,?,?,?,?,?,?,?) RETURNING hours_id; ";
+        int hours = jdbcTemplate.queryForObject(sql3, Integer.class, shopId, coffeeShop.getMonday(), coffeeShop.getTuesday(), coffeeShop.getWednesday(), coffeeShop.getThursday(), coffeeShop.getFriday(), coffeeShop.getSaturday(), coffeeShop.getSunday());
+        coffeeShop.setHoursId(hours);
+
+        String sql4 = "INSERT INTO shop_address (shop_id, address_id) " +
+                "VALUES (?,?); ";
+
+        jdbcTemplate.update(sql4, shopId, address);
+
+
+    }
 
 }
