@@ -1,72 +1,93 @@
 <template>
   <div>
-    <form v-on:submit.prevent="addNewShop" class="coffeeShopForm">
+    <form v-on:submit.prevent="addNewShop" id="coffeeShopForm">
+
+      <div id="main-details">
       <label for="coffeeShopName">Coffee Shop Name: </label>
-      <input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" required><br>
+      <p><input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" required></p>
 
       <label for="coffeeShopImage"> Coffee Shop Image: </label>
-      <input type="text" v-model="newShop.image" id="coffeeShopImage" name="coffeeShopImage" required><br>
+      <p><input type="text" v-model="newShop.image" id="coffeeShopImage" name="coffeeShopImage" required></p>
       <p class="instructions">Please provide an image that you would like associated with your shop.</p>
 
       <label for="coffeeShopWebLink"> Coffee Shop Website Link: </label>
-      <input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink" required><br>
+      <p><input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink" required></p>
 
+<label for="coffeeShopPrice"> Coffee Shop Price Range: </label>
+      <p><input type="text" v-model.number="newShop.price" id="coffeeShopPrice" name="coffeeShopPrice" required></p>
+      <p class="instructions">Please provide a price range for your shop from 1 - 5. 1 is the lowest, 5 is the highest.</p>
+
+      <label for="coffeeShopRating"> Coffee Shop Rating: </label>
+      <p><input type="text" v-model.number="newShop.rating" id="coffeeShopRating" name="coffeeShopRating" required></p>
+      <p class="instructions">Please provide your shop's rating based on Google Reviews to the nearest whole number.</p>
+</div>
+
+<div id="address">
       <label for="coffeeShopAddress"> Address: </label>
-      <input type="text" v-model="newShop.address" id="coffeeShopAddress" name="coffeeShopAddress" required><br>
+      <p><input type="text" v-model="newShop.address" id="coffeeShopAddress" name="coffeeShopAddress" required></p>
 
       <p class="instructions">You can enter your latitude and longitude below to have your shop show up on our map. <br>
                               You can use the following site to convert your address: <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">latlong.net</a>
       </p>
       <label for="latitude"> Latitude: </label>
-      <input type="text" v-model.number="newShop.latitude" id="latitude" name="latitude" required><br>
+      <p><input type="text" v-model.number="newShop.latitude" id="latitude" name="latitude" required></p>
 
       <label for="longitude"> Longitude: </label>
-      <input type="text"  v-model.number="newShop.longitude" id="longitude" name="longitude" required><br>
-
-      <p>Enter Shop Hours:<p>
-      <p class="instructions">Please enter your shop hours for each day of the week formatted as 9a-9p. If closed, please type "closed".</p>
-      <label for="coffeeShopMonday">Monday: </label>
-      <input type="text" v-model="newShop.monday" id="coffeeShopHours" name="coffeeShopMonday" required><br>
-
-      <label for="coffeeShopTuesday">Tuesday: </label>
-      <input type="text" v-model="newShop.tuesday" id="coffeeShopHours" name="coffeeShopTuesday" required><br>
-
-      <label for="coffeeShopWednesday">Wednesday: </label>
-      <input type="text" v-model="newShop.wednesday" id="coffeeShopHours" name="coffeeShopWednesday" required><br>
-
-      <label for="coffeeShopThursday">Thursday: </label>
-      <input type="text" v-model="newShop.thursday" id="coffeeShopHours" name="coffeeShopThursday" required><br>
-
-      <label for="coffeeShopFriday">Friday: </label>
-      <input type="text" v-model="newShop.friday" id="coffeeShopHours" name="coffeeShopFriday" required><br>
-
-      <label for="coffeeShopSaturday">Saturday: </label>
-      <input type="text" v-model="newShop.saturday" id="coffeeShopHours" name="coffeeShopSaturday" required><br>
-
-      <label for="coffeeShopSunday">Sunday: </label>
-      <input type="text" v-model="newShop.sunday" id="coffeeShopHours" name="coffeeShopSunday" required><br>
-
-      <label for="coffeeShopPrice"> Coffee Shop Price Range: </label>
-      <input type="text" v-model.number="newShop.price" id="coffeeShopPrice" name="coffeeShopPrice" required><br>
-      <p class="instructions">Please provide a price range for your shop from 1 - 5. 1 is the lowest, 5 is the highest.</p>
-
-      <label for="coffeeShopRating"> Coffee Shop Rating: </label>
-      <input type="text" v-model.number="newShop.rating" id="coffeeShopRating" name="coffeeShopRating" required><br>
-      <p class="instructions">Please provide your shop's rating based on Google Reviews to the nearest whole number.</p>
-
-      <label for="coffeeShopHighlights" class="coffeeShopHighlights"> Coffee Shop Highlights: </label>
-<div class="highlightBox">
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="food" id="food" value="food" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Food</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="desserts" id="desserts" value="dessert" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Desserts</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="smoothies" id="smoothies" value="smoothies" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Smoothies</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="grounds" id="grounds" value="bean" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Beans and/or grounds</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="alcohol" id="alcohol" value="alcohol" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Alcohol</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="non-dairy" id="non-dairy" value="non-dairy" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Non-dairy alternatives</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="outdoor seating" id="outdoor seating" value="outdoor seating" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Outdoor seating</p>
-      <p class="checkboxLabel"><input type="checkbox" v-model="newHighlights" name="dog friendly" id="dog friendly" value="dog friendly" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Pet friendly<br></p>
+      <p><input type="text"  v-model.number="newShop.longitude" id="longitude" name="longitude" required></p>
 </div>
+      
+<!-- <section class="bottom-section"> -->
+<div id="full-highlights">
+      <p class="coffeeShopHighlights"><label for="coffeeShopHighlights" class="coffeeShopHighlights"> Coffee Shop Highlights: </label></p>
+<div class="highlightBox">
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="food" id="food" value="food" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Food</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="desserts" id="desserts" value="dessert" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Desserts</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="smoothies" id="smoothies" value="smoothies" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Smoothies</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="grounds" id="grounds" value="bean" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Beans and/or grounds</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="alcohol" id="alcohol" value="alcohol" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Alcohol</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="non-dairy" id="non-dairy" value="non-dairy" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Non-dairy alternatives</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="outdoor seating" id="outdoor seating" value="outdoor seating" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Outdoor seating</p>
+      <p class="checkboxLabel margin"><input type="checkbox" v-model="newHighlights" name="dog friendly" id="dog friendly" value="dog friendly" class="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;Pet friendly<br></p>
+</div>
+</div>
+<div id="shop-hours">
+      <p>Enter Shop Hours:<p>
+      <p class="instructions">Enter shop hours formatted as "9a-9p". If closed, "closed".</p>
+      <div class="focused-hours">
+        <div class="day">
+      <label for="coffeeShopMonday" class="day-label">Monday: </label>
+      <p class="margin"><input type="text" v-model="newShop.monday" id="coffeeShopHours" name="coffeeShopMonday" class="day-input" required></p>
+        </div>
+<div class="day">
+      <label for="coffeeShopTuesday" class="day-label">Tuesday: </label>
+      <p class="margin"><input type="text" v-model="newShop.tuesday" id="coffeeShopHours" name="coffeeShopTuesday" class="day-input" required></p>
+</div>
+<div class="day">
+      <label for="coffeeShopWednesday" class="day-label">Wednesday: </label>
+      <p class="margin"><input type="text" v-model="newShop.wednesday" id="coffeeShopHours" name="coffeeShopWednesday" class="day-input" required></p>
+</div>
+<div class="day">
+      <label for="coffeeShopThursday" class="day-label">Thursday: </label>
+      <p class="margin"><input type="text" v-model="newShop.thursday" id="coffeeShopHours" name="coffeeShopThursday" class="day-input" required></p>
+</div>
+<div class="day">
+      <label for="coffeeShopFriday" class="day-label">Friday: </label>
+      <p class="margin"><input type="text" v-model="newShop.friday" id="coffeeShopHours" name="coffeeShopFriday" class="day-input" required></p>
+</div>
+<div class="day">
+      <label for="coffeeShopSaturday" class="day-label">Saturday: </label>
+      <p class="margin"><input type="text" v-model="newShop.saturday" id="coffeeShopHours" name="coffeeShopSaturday" class="day-input" required></p>
+</div>
+<div class="day">
+      <label for="coffeeShopSunday" class="day-label">Sunday: </label>
+      <p><input type="text" v-model="newShop.sunday" id="coffeeShopHours" name="coffeeShopSunday" class="day-input" required></p>
+      </div>
+      </div>
+</div>
+<!-- </section> -->
+<div id="submit-button">
       <input type="submit">
-
+</div>
 
     </form>
   </div>
@@ -127,47 +148,185 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .instructions {
   font-size: 14px;
 }
 
-.coffeeShopForm {
+#coffeeShopForm {
   text-align: center;
   align-items: center;
   justify-content: space-between;
   width: 76%;
   margin-left: 12%;
   margin-right: 12%;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: column;
+  grid-template-areas:
+  "details details"
+  "address address"
+  "highlights hours"
+  "submit submit"
+  
 }
 
 .highlightBox {
   text-align: left;
-  width: 35%;
-  margin-left: 35%;
-  margin-right: 30%;
-}
-
- .checkbox .checkboxLabel {
-   width: 10%;
-  display: flex;
-  flex-direction: row;
-  margin-left: 45%;
-  margin-right: 45%;
+  width: 100%;
+  margin-left: 25%;
+  margin-right: 0%;
 }
 
 .checkbox {
   justify-items: left;
   align-items: flex-start;
   text-align: left;
+  margin-left: 10px;
 }
 
-.coffeeShopHighlights > p {
- width: 20%;
+.coffeeShopHighlights {
+ width: 100%;
   justify-content: left;
   align-items: flex-start;
   text-align: left;
+  margin-bottom: 10px;
+  margin-left: 10%;
+}
+#main-details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+
+}
+#shop-hours {
+  grid-area: hours;
+  text-align: left;
+  width: 76%;
+  margin-left: 10%;
+  margin-right: 5%;
+}
+#address {
+  grid-area: address;
+  display: flex;
+  flex-direction: column;
 }
 
+#full-highlights {
+  grid-area: highlights;
+}
+#submit-button {
+  grid-area: submit;
+}
+.bottom-section {
+  display: flex;
+  width: 76%;
+  margin-left: 10%;
+  margin-right: 5%;
+  column-gap: 5px;
+}
+.focused-hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.day-input {
+  max-width: 100px;
+}
+.day {
+  display: flex;
+    align-items: center;
+  justify-content: space-between;
+  width: 81%;
+  margin-left: 12%;
+  margin-right: 0%;
+}
+.day > label {
+  margin-right: 10%;
+}
+.margin {
+  margin: 0;
+}
 
+@media screen and (max-width: 820px) {
+  #coffeeShopForm {
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 76%;
+  margin-left: 12%;
+  margin-right: 12%;
+  display: flex;
+  flex-direction: column;
+  grid-template-areas:
+  "details"
+  "address"
+  "hours"
+  "highlights"
+  "submit"
+  }
+  #shop-hours {
+  grid-area: hours;
+  text-align: left;
+  width: 60%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.highlightBox {
+  text-align: left;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 0%;
+}
+.coffeeShopHighlights {
+ width: 100%;
+  justify-content: left;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 0%;
+}
+
+@media screen and (max-width: 420px) {
+  #coffeeShopForm {
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 76%;
+  margin-left: 12%;
+  margin-right: 12%;
+  display: flex;
+  flex-direction: column;
+  grid-template-areas:
+  "details"
+  "address"
+  "hours"
+  "highlights"
+  "submit"
+  }
+  #shop-hours {
+  grid-area: hours;
+  text-align: left;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.highlightBox {
+  text-align: left;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 0%;
+}
+.coffeeShopHighlights {
+ width: 100%;
+  justify-content: left;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 0%;
+}
+}
+}
 </style>

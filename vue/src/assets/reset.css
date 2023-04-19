@@ -23,21 +23,21 @@ ul {
   padding: 0;
 }
 button {
-  border: 0.2rem solid #9f5a37;;
+  border: 0.2rem solid #999;;
   border-radius: 5px;
   margin: 0;
   padding: 5px 15px 5px 15px;
   width: auto;
   overflow: visible;
-  background: #ddaf6b;
-  color: #683012;
+  background: white;
+  color: black;
   font: inherit;
   line-height: normal;
   appearance: none;
-  box-shadow: 0 1.5px #999;
+  box-shadow: 0 1.5px #666;
 }
 button:active {
-  background-color: #b48f58;
+  background-color: white;
   box-shadow: 0 2px #666;
   transform: translateY(1px);
 }
@@ -52,7 +52,7 @@ textarea {
   margin: 0;
 }
 select:active {
-  background-color: #b48f58;
+  background-color: #999;
 
 }
 button,
@@ -66,15 +66,15 @@ body {
   width: 100%;
   max-width: 100rem;
   margin: 0 auto;
-  font: 1.6rem/1.25 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #ddaf6b;
-  color: #9f5a37;
+  font: 2rem/1.25 'Playfair';
+  background-color: white;
+  color: black;
 }
 a:link {
-    color:#9f5a37
+    color:black
 }
 a:visited {
-    color:#9f5a37
+    color:black
 }
 @media screen and (min-width: 620px) {
   body {

@@ -24,16 +24,16 @@ methods: {
 }
 </script>
 
-<style>
+<style scoped>
 #form-select{
   width: min-content;
   height: max-content;
   font: inherit;
-  color: #683012;
-  background-color: #ddaf6b;
-  border: 0.2rem #9f5a37 solid;
+  color: black;
+  background-color: white;
+  border: 0.2rem #999 solid;
   border-radius: 5px;
-  box-shadow: 0 1.5px #999;
+  box-shadow: 0 1.5px #666;
   padding: 5px 15px 5px 15px;
   line-height: normal;
 }
@@ -43,5 +43,55 @@ methods: {
   column-gap: 2em;
   margin-top: 20px;
   padding-bottom: 0px;
+}
+
+@media screen and (max-width: 820px) {
+  #form-select{
+  width: min-content;
+  height: max-content;
+  font: inherit;
+  color: black;
+  background-color: white;
+  border: 0.2rem #999 solid;
+  border-radius: 5px;
+  box-shadow: 0 1.5px #666;
+  padding: 5px 15px 5px 15px;
+  line-height: normal;
+}
+.button-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min-content;
+  height: max-content;
+  column-gap: 2em;
+  margin-top: 20px;
+  padding-bottom: 0px;
+}
+  @media screen and (max-width: 420px) {
+  #form-select{
+  width: min-content;
+  height: max-content;
+  font: inherit;
+  color: black;
+  background-color: white;
+  border: 0.2rem #999 solid;
+  border-radius: 5px;
+  box-shadow: 0 1.5px #666;
+  padding: 5px 15px 5px 15px;
+  line-height: normal;
+}
+.button-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min-content;
+  height: max-content;
+  column-gap: 2em;
+  margin-top: 20px;
+  padding-bottom: 0px;
+}
+  }
+
 }
 </style>

@@ -19,7 +19,7 @@
           class="shop"
           v-on:click.prevent="setActiveShop(shop), $emit('opensidebar')"
         >
-          {{ shop.shop + " ~ " + shop.address + " ~ "}}
+          {{ shop.shop + " ~ "}}
           <img
         id="rating2"
         class="highlights"
@@ -152,7 +152,7 @@ export default {
   padding-top: 10px;
 }
 .shop:hover {
-  color: #683012;
+  color: #666;
   cursor: default;
 }
 .image {
@@ -174,7 +174,7 @@ export default {
 }
 
 .bottom-border{
-  border-bottom: #9f5a37 solid;
+  border-bottom: black solid;
   border-width: 3px;
   padding-bottom: 5px;
 }

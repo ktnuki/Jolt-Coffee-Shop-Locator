@@ -2,6 +2,8 @@
   <div id="app">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Tangerine">
+         <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Playfair"> 
     <div id="nav">
       
       <router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
@@ -125,9 +127,9 @@ There are generic button themes available, though mostly just useful for referen
 }
 /* End global styles */
 #app {
-  background: #f4ead2;
+  background: white;
   text-align: center;
-  color: #9f5a37;
+  color: black;
   margin-top: 60px;
   margin: 2rem 0 4rem 0;
   padding: 1rem;
