@@ -23,7 +23,7 @@
           <img
         id="rating2"
         class="highlights"
-        src="../assets/brown-single-bean.png"
+        src="../assets/Beans_Artwork.png"
         alt=""
         title="Positive rating bean"
         v-for="numberOfRating in shop.rating"
@@ -152,7 +152,7 @@ export default {
   padding-top: 10px;
 }
 .shop:hover {
-  color: #666;
+  color: #683012;
   cursor: default;
 }
 .image {
@@ -174,7 +174,7 @@ export default {
 }
 
 .bottom-border{
-  border-bottom: black solid;
+  border-bottom: #9f5a37 solid;
   border-width: 3px;
   padding-bottom: 5px;
 }
