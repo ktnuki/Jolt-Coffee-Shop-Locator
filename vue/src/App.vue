@@ -3,15 +3,19 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Tangerine">
          <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Playfair"> 
+          href="https://fonts.googleapis.com/css?family=Playfair+Display"> 
+<div class="logo-holder">
+    <img src="./assets/jolt_logo.png" alt="" id="logo">
+    </div>
     <div id="nav">
       
+    
       <router-link class="link" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link class="link" v-bind:to="{ name: 'shops' }">Shops</router-link>&nbsp;|&nbsp;
       <router-link class="link" v-if="isOwner" v-bind:to="{ name: 'add-shops' }">Add Your Coffee Shop&nbsp;|&nbsp;</router-link>
       <router-link class="link" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
       <router-link class="link" v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
-      <router-link class="link" v-if="isAdmin" v-bind:to="{ name: 'admin' }">&nbsp;|&nbsp;Admin&nbsp;|&nbsp;</router-link>
+      <router-link class="link" v-if="isAdmin" v-bind:to="{ name: 'admin' }">&nbsp;|&nbsp;Admin</router-link>
 
 
     <div class="spacer"></div>
@@ -65,6 +69,15 @@ export default {
 /* These styles are applied to the App element and it's children.
 These will overwrite defaults set in 'assets/reset.css' (which are imported into 'src/main.js').
 There are generic button themes available, though mostly just useful for reference.*/
+
+.logo-holder {
+  display: flex;
+}
+
+#logo {
+  width: 10%;
+  text-align: left;
+}
 .btn {
   padding: 0.8rem 1rem 0.7rem;
   cursor: pointer;
@@ -143,9 +156,9 @@ There are generic button themes available, though mostly just useful for referen
 }
 /* End global styles */
 #app {
-  background: white;
+  background: #fffbf7;
   text-align: center;
-  color: black;
+  color: #212529;
   margin-top: 60px;
   margin: 2rem 0 4rem 0;
   padding: 1rem;
@@ -180,6 +193,9 @@ There are generic button themes available, though mostly just useful for referen
 #nav {
   border-bottom: 3px solid;
   margin-bottom: 15px;
+  margin-top: -65px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .spacer {
@@ -191,6 +207,17 @@ There are generic button themes available, though mostly just useful for referen
   font-family: 'Tangerine';
   font-size: 48px;
   font-weight: bold;
+}
+
+@media screen and (max-width: 680px) {
+  #nav {
+    margin-top: 0px;
+  }
+
+  #logo {
+    display: none;
+  }
+  
 }
 
 </style>

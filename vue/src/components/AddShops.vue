@@ -1,39 +1,39 @@
 <template>
-  <div>
+  <div class="main-div">
     <form v-on:submit.prevent="addNewShop" id="coffeeShopForm">
 
       <div id="main-details">
       <label for="coffeeShopName">Coffee Shop Name: </label>
-      <p><input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" required></p>
+      <p><input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" class="input-radius" required></p>
 
       <label for="coffeeShopImage"> Coffee Shop Image: </label>
-      <p><input type="text" v-model="newShop.image" id="coffeeShopImage" name="coffeeShopImage" required></p>
-      <p class="instructions">Please provide an image that you would like associated with your shop.</p>
+      <p><input type="text" v-model="newShop.image" id="coffeeShopImage" name="coffeeShopImage"  class="input-radius" required></p>
+      <p class="instructions">Please provide a link to an image that you would like associated with your shop.</p>
 
       <label for="coffeeShopWebLink"> Coffee Shop Website Link: </label>
-      <p><input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink" required></p>
+      <p><input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink"  class="input-radius" required></p>
 
 <label for="coffeeShopPrice"> Coffee Shop Price Range: </label>
-      <p><input type="text" v-model.number="newShop.price" id="coffeeShopPrice" name="coffeeShopPrice" required></p>
+      <p><input type="text" v-model.number="newShop.price" id="coffeeShopPrice" name="coffeeShopPrice"  class="input-radius" required></p>
       <p class="instructions">Please provide a price range for your shop from 1 - 5. 1 is the lowest, 5 is the highest.</p>
 
       <label for="coffeeShopRating"> Coffee Shop Rating: </label>
-      <p><input type="text" v-model.number="newShop.rating" id="coffeeShopRating" name="coffeeShopRating" required></p>
+      <p><input type="text" v-model.number="newShop.rating" id="coffeeShopRating" name="coffeeShopRating"  class="input-radius" required></p>
       <p class="instructions">Please provide your shop's rating based on Google Reviews to the nearest whole number.</p>
 </div>
 
 <div id="address">
       <label for="coffeeShopAddress"> Address: </label>
-      <p><input type="text" v-model="newShop.address" id="coffeeShopAddress" name="coffeeShopAddress" required></p>
+      <p><input type="text" v-model="newShop.address" id="coffeeShopAddress" name="coffeeShopAddress"  class="input-radius" required></p>
 
       <p class="instructions">You can enter your latitude and longitude below to have your shop show up on our map. <br>
                               You can use the following site to convert your address: <a href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank">latlong.net</a>
       </p>
       <label for="latitude"> Latitude: </label>
-      <p><input type="text" v-model.number="newShop.latitude" id="latitude" name="latitude" required></p>
+      <p><input type="text" v-model.number="newShop.latitude" id="latitude" name="latitude"  class="input-radius" required></p>
 
       <label for="longitude"> Longitude: </label>
-      <p><input type="text"  v-model.number="newShop.longitude" id="longitude" name="longitude" required></p>
+      <p><input type="text"  v-model.number="newShop.longitude" id="longitude" name="longitude"  class="input-radius" required></p>
 </div>
       
 <!-- <section class="bottom-section"> -->
@@ -86,7 +86,7 @@
 </div>
 <!-- </section> -->
 <div id="submit-button">
-      <input type="submit">
+      <button type="submit">Submit</button>
 </div>
 
     </form>
@@ -149,17 +149,24 @@ export default {
 </script>
 
 <style scoped>
+
+.main-div {
+  background-color: #BFBCBA;
+}
 .instructions {
   font-size: 14px;
 }
 
 #coffeeShopForm {
   text-align: center;
+  background-color: #FFFbf7;
   align-items: center;
   justify-content: space-between;
   width: 76%;
   margin-left: 12%;
   margin-right: 12%;
+  border-top: 10px solid #BFBCBA;
+  border-bottom: 10px solid #BFBCBA;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2.5rem 5rem 0 rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -198,7 +205,7 @@ export default {
   grid-area: details;
   display: flex;
   flex-direction: column;
-
+  margin-top: 10px;
 }
 #shop-hours {
   grid-area: hours;
@@ -218,6 +225,7 @@ export default {
 }
 #submit-button {
   grid-area: submit;
+  margin-bottom: 10px;
 }
 .bottom-section {
   display: flex;
@@ -233,7 +241,8 @@ export default {
   
 }
 .day-input {
-  max-width: 100px;
+  max-width: 90px;
+  border-radius: 4px;
 }
 .day {
   display: flex;
@@ -249,6 +258,11 @@ export default {
 .margin {
   margin: 0;
 }
+
+.input-radius {
+  border-radius: 4px;
+}
+
 
 @media screen and (max-width: 820px) {
   #coffeeShopForm {

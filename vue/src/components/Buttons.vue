@@ -1,4 +1,5 @@
 <template>
+<div class="button-holder">
   <div class="button-component">
     <button @click="$store.commit('SET_DIRECTIONS')" id="get-directions">Get Directions</button>
     <button @click="$store.commit('CLEAR_DIRECTIONS')" id="clear-directions">Clear Directions</button>
@@ -10,6 +11,7 @@
         <option value="filter-by-visited">Filter By Visited</option> 
       </select>
   </div>
+</div>
 </template>
 
 <script>
@@ -68,6 +70,12 @@ methods: {
   margin-top: 20px;
   padding-bottom: 0px;
 }
+
+.button-holder {
+  display: flex;
+  justify-content: center;
+}
+
   @media screen and (max-width: 420px) {
   #form-select{
   width: min-content;
@@ -92,6 +100,11 @@ methods: {
   padding-bottom: 0px;
 }
   }
+
+.button-holder {
+  display: flex;
+  justify-content: center;
+}
 
 }
 </style>

@@ -18,7 +18,11 @@ VALUES ('Third Way Cafe', 'third_way_cafe.png', 'https://www.thirdwaycafe.org/',
 		('Basic Biscuits, Kindness, and Coffee', 'basic_biscuits.png', 'https://www.getbasicbiscuits.com/', 4, 3, 'coffee, food, alcohol, non-dairy, outdoor seating', 'https://www.getbasicbiscuits.com/home', 39.97476, -83.03456, true),
 		('Qamaria Yemeni Coffee Co.', 'qamaria_coffee.png', 'https://www.qamariacoffee.com/', 4, 3, 'coffee, dessert, bean, smoothies, non-dairy', 'https://www.clover.com/online-ordering/qamaria-hilliard', 40.017262, -83.158974, true),
 		('The Roosesvelt Coffeehouse', 'roosevelt_coffee.png', 'https://www.rooseveltcoffee.org/', 3, 3, 'coffee, dessert, food, non-dairy, outdoor seating, dog friendly', 'https://roosevelt.coffee/shop/', 39.96601, -82.99315, true),
-		('Mission Coffee Company', 'mission_coffee.png', 'https://www.missioncoffeeco.com/', 2, 2, 'coffee, bean', 'https://www.missioncoffeeco.com/collections', 39.91948, -82.99417, true)
+		('Mission Coffee Co.', 'mission_coffee.png', 'https://www.missioncoffeeco.com/', 2, 2, 'coffee, bean', 'https://www.missioncoffeeco.com/collections', 39.91948, -82.99417, true),
+		('Bottoms Up Coffee', 'bottoms_up.png', 'https://www.bottomsupcoffee.com/', 3, 5, 'food, alcohol, dessert', 'https://www.bottomsupcoffee.com/menu', 39.95862, -83.02913, true),
+		('Roaming Goat Coffee', 'roaming_goat.png', 'https://www.roaminggoatcoffee.com/Default.asp', 5, 4, 'bean, non-dairy', 'https://www.zmenu.com/roaming-goat-coffee-columbus-online-menu/', 39.97970, -83.00425, true),
+		('RIDEhome', 'ride_home.png', 'https://www.ride-home.com/', 1, 5, 'dessert', 'https://www.ride-home.com/', 40.08710, -83.01766, true)
+
 		;
 		
 INSERT INTO address (address) 
@@ -36,7 +40,10 @@ VALUES ('3058 W Broad St, Columbus, OH 43204'),
 		('1160 Goodale Boulevard, Columbus, OH 43212'),
 		('3221 Hilliard Rome Rd, Hilliard, OH 43026'),
 		('300 E Long St Columbus, OH 43215'),
-		('2060 S High St, Columbus, OH 43207')
+		('2060 S High St, Columbus, OH 43207'),
+		('1069 West Broad St. Columbus, OH 43222'),
+		('849 N High St, Columbus, OH 43215'),
+		('650 High St, Worthington, OH 43085')
 		;
 
 INSERT INTO hours (shop_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday)
@@ -54,10 +61,14 @@ VALUES (1, '7a-3p', '7a-3p', '7a-3p', '7a-3p', '7a-3p', '8a-2p', '8a-2p'),
 		(12, 'closed', '7a-12p', '7a-12p', '7a-12p', '7a-12p', '8a-1p', '8a-1p'),
 		(13, '7a-2p', '7a-2p', '7a-2p', '7a-2p', '7a-2p', '7a-2p', '7a-2p'),
 		(14, '7a-6p', '7a-6p', '7a-6p', '7a-6p', '7a-6p', '8a-6p', '8a-6p'),
-		(15, '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p')
+		(15, '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p', '8:30a-4:30p'),
+		(16, '7:30p-1p', '7:30a-6p', '7:30a-6p', '7:30a-6p', '7:30a-6p', '8a-3p', '11a-3p'),
+		(17, '7a-6p', '7a-6p', '7a-6p', '7a-6p', '7a-6p', '8a-6p', '8a-6p'),
+		(18, '11a-6p', '11a-6p', '11a-6p', '11a-6p', '11a-6p', '11a-6p', '12p-5p')
 		;
 
 INSERT INTO shop_address (shop_id, address_id)
-VALUES (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), (11, 11), (12, 12), (13, 13), (14, 14), (15, 15);
+VALUES (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), (11, 11), (12, 12), (13, 13), (14, 14), (15, 15), (16, 16), (17, 17),
+(18, 18);
 
 COMMIT TRANSACTION;

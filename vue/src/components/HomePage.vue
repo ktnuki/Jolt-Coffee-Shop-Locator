@@ -129,20 +129,31 @@ export default {
   justify-content: flex-end;
 }
 .picture_holder > img {
-   height: 25em;
+  max-width: 100%;
 }
 .picture_holder {
   
   margin-right:auto;
   /* border:solid #333; */
-  flex-shrink: 1;
+  flex-basis: 50rem;  
   
 }
 .text_box {
   /* border:solid #333; */
-  flex-grow: 2;
+    flex-basis: 50rem;  
+
 }
 
+@media screen and (max-width: 420px) {
+  .picture_holder > img {
+    display: none;
+  }
+
+  .picture_holder {
+    flex-basis: 0rem;
+  }
+
+}
 
 
 
@@ -256,7 +267,7 @@ ol, li {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
-  background-color: #f99;
+  background-color: #BFBCBA;
   /* counter-increment: item; */
 }
 

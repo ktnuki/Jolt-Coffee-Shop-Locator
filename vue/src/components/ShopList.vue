@@ -13,6 +13,13 @@
     </div>
 
     <h1 id="coffee-shops-header" class="fancy-text bottom-border">Coffee Shops</h1>
+  <div class="shoplistHolder">
+    <div class="shoplistImages">
+      <img src="../assets/generic6.png" alt="">
+      <img src="../assets/generic8.png" alt="">
+
+    </div>
+
     <div class="shoplist">
       <div v-for="shop in getFavorites()" v-bind:key="shop.id">
         <div
@@ -29,6 +36,7 @@
         v-for="numberOfRating in shop.rating"
         v-bind:key="numberOfRating"
       />
+          </div>
         </div>
       </div>
     </div>
@@ -145,12 +153,31 @@ export default {
 </script>
 
 <style scoped>
+.shoplistHolder {
+  display: flex;
+  column-gap: 10px;
+}
+
+.shoplistImages > img {
+  width: 95%;
+  margin-top: 5px;
+}
+
+.shoplistImages {
+  width: 70%;
+  flex-basis: 50rem;
+}
+
 .shoplist {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
   padding-top: 10px;
+  flex-basis: 70rem;
+  max-height: 535px;
+  overflow: auto;
 }
+
 .shop:hover {
   color: #683012;
   cursor: default;
@@ -174,12 +201,24 @@ export default {
 }
 
 .bottom-border{
-  border-bottom: #9f5a37 solid;
+  border-bottom: #242921 solid;
   border-width: 3px;
   padding-bottom: 5px;
 }
 #coffee-shop-header {
   padding-top: 0px;
+}
+
+@media screen and (max-width: 420px) {
+  .shoplistImages > img {
+    display: none;
+  }
+
+  .shoplistImages {
+  width: 70%;
+  flex-basis: 0rem;
+}
+
 }
 
 
