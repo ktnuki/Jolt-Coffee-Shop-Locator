@@ -7,7 +7,7 @@
       <p><input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" class="input-radius" required></p>
 
       <p class="instructions">Please provide an image that you would like associated with your shop.</p>
-      <button @click.prevent="openUploadWidget()">Upload Image</button>
+      <button id="image-button" @click.prevent="openUploadWidget()">Upload Image</button>
     
       <label for="coffeeShopWebLink"> Coffee Shop Website Link: </label>
       <p><input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink"  class="input-radius" required></p>
@@ -238,6 +238,12 @@ export default {
 }
 #submit-button {
   grid-area: submit;
+  margin-bottom: 10px;
+}
+
+#image-button{
+  width: fit-content;
+  margin-left: 39%;
   margin-bottom: 10px;
 }
 .bottom-section {
