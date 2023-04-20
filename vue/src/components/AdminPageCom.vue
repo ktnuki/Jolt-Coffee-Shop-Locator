@@ -4,14 +4,17 @@
       Coffee Shops
     </h1>
     <div class="shoplist">
-      <div v-for="shop in adminShopListMethod()" v-bind:key="shop.shopId">
-        <button @click.prevent="evaluateIsApproved(shop)">
-          {{ displayIsApproved(shop.approved) }}
-        </button>
-        <button @click.prevent="deleteShop(shop.shopId)">Delete</button>
-        <div class="shop">
-          {{ shop.shop }}
-        </div>
+      <div v-for="shop in adminShopListMethod()" v-bind:key="shop.shopId" class="admin-buttons">
+
+          <p>{{ shop.shop }}</p>
+
+          <section class = "button-section">
+            <button @click.prevent="evaluateIsApproved(shop)">
+            {{ displayIsApproved(shop.approved) }}
+          </button>
+            <button @click.prevent="deleteShop(shop.shopId)">Delete</button>
+          </section>
+        
       </div>
     </div>
   </div>
@@ -40,7 +43,7 @@ export default {
     },
     displayIsApproved(boo) {
       if (boo == true) {
-        return "UnApprove";
+        return "Revoke";
       } else {
         return "Approve";
       }
@@ -83,5 +86,23 @@ export default {
 <style>
 .shoplist {
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
+
+.admin-buttons {
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  margin-right: 5%;
+  margin-left: 5%;
+  border-bottom: 2px solid #999;
+}
+
+.button-section > button {
+  width: 104px;
+}
+
+
 </style>

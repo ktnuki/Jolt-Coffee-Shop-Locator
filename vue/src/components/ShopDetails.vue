@@ -208,7 +208,7 @@ export default {
       if (this.favorited == false) {
         return "Favorite";
       } else {
-        return "UnFavorite";
+        return "Unfavorite";
       }
     },
     getImageURL(pic) {
@@ -276,16 +276,20 @@ img {
 .headers {
   text-decoration: underline;
   cursor: default;
+  text-transform: uppercase;
+  font-size: 1.7rem
+
 }
 .highlight-header {
   margin-bottom: 10px;
 }
 #buttons {
-  display: flex;
-  justify-content: space-evenly;
   margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 12px;
+}
+
+#buttons > button {
+  width: 127px;
+  margin-right: 5px;
 }
 
 .button {

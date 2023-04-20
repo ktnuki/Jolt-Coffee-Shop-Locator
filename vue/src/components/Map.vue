@@ -7,7 +7,7 @@
       ref="map"
       :center="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
       :zoom="12"
-      style="width: 100%; height: 400px"
+      style="width: 100%; height: 500px"
     >
     
       <gmap-marker
@@ -152,7 +152,7 @@ export default {
   height: auto;
 }
 #container{
-  height: 400px;
+  height: 500px;
   display: flex;
 }
 

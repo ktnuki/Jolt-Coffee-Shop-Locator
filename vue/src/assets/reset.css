@@ -35,6 +35,7 @@ button {
   line-height: normal;
   appearance: none;
   box-shadow: 0 1.5px #666;
+
 }
 button:active {
   background-color: white;
@@ -67,7 +68,7 @@ body {
   width: 100%;
   max-width: 100rem;
   margin: 0 auto;
-  font: 2rem/1.25 'Playfair';
+  font: 2rem/1.25 'Playfair Display';
   background-image: url(../assets/Untitled_Artwork.jpeg);
   background-attachment: fixed;
   background-size: cover;
