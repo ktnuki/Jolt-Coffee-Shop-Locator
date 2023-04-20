@@ -13,7 +13,7 @@
       <gmap-marker
         class="marker"
         :position="{ lat: $store.state.coordinates.lat, lng: $store.state.coordinates.lng }"
-        :icon="'http://maps.google.com/mapfiles/kml/pal3/icon56.png'"
+        :icon="'http://maps.google.com/mapfiles/ms/micons/yellow-dot.png'"
         :clickable="true"
         :draggable="false"
       ></gmap-marker>
@@ -24,7 +24,7 @@
           lat: parseFloat(shop.latitude),
           lng: parseFloat(shop.longitude),
         }"
-        :icon="'//maps.google.com/mapfiles/kml/pal2/icon54.png'"
+        :icon="'http://maps.google.com/mapfiles/ms/micons/red-dot.png'"
         :clickable="true"
         :draggable="false"
         v-on:click="setActiveShop(shop), $emit('opensidebar')/* , openWindow(shop) */"

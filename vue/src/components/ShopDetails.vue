@@ -199,9 +199,9 @@ export default {
     },
     displayVisited() {
       if (this.checked == true) {
-        return "Visited";
+        return "Un-Visit";
       } else {
-        return "Not Visited";
+        return "Visit";
       }
     },
     displayIsFavorited() {
@@ -212,7 +212,11 @@ export default {
       }
     },
     getImageURL(pic) {
-      return require("../assets/" + pic);
+      if(!pic.includes("http")){
+              return require("../assets/" + pic);
+      } else {
+        return pic;
+      }
     },
     addFavoriteShop() {
       let shopId = this.currentshop.shopId;

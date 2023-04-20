@@ -14,7 +14,7 @@
 
     <h1 id="coffee-shops-header" class="fancy-text bottom-border">Coffee Shops</h1>
     <div class="shoplist">
-      <div v-for="shop in getFavorites()" v-bind:key="shop.id">
+      <div v-for="shop in getList()" v-bind:key="shop.id">
         <div
           class="shop"
           v-on:click.prevent="setActiveShop(shop), $emit('opensidebar')"
@@ -70,7 +70,7 @@ export default {
     setActiveShop(shop) {
       return this.$store.commit("SET_ACTIVE_SHOP", shop);
     },
-    getFavorites() {
+    getList() {
       ShopService.getFavoritesList()
       .then((response) => {
         this.$store.commit("SET_FAVORITES_LIST", response.data)

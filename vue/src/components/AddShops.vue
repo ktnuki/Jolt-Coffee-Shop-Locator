@@ -6,10 +6,9 @@
       <label for="coffeeShopName">Coffee Shop Name: </label>
       <p><input type="text" v-model="newShop.shop" id="coffeeShopName" name="coffeeShopName" required></p>
 
-      <label for="coffeeShopImage"> Coffee Shop Image: </label>
-      <p><input type="text" v-model="newShop.image" id="coffeeShopImage" name="coffeeShopImage" required></p>
       <p class="instructions">Please provide an image that you would like associated with your shop.</p>
-
+      <button @click.prevent="openUploadWidget()">Upload Image</button>
+    
       <label for="coffeeShopWebLink"> Coffee Shop Website Link: </label>
       <p><input type="text" v-model="newShop.webLink" id="coffeeShopWebLink" name="coffeeShopWebLink" required></p>
 
@@ -51,7 +50,7 @@
 </div>
 </div>
 <div id="shop-hours">
-      <p>Enter Shop Hours:<p>
+      <p>Enter Shop Hours:</p>
       <p class="instructions">Enter shop hours formatted as "9a-9p". If closed, "closed".</p>
       <div class="focused-hours">
         <div class="day">
@@ -97,7 +96,9 @@
 import ShopService from '../services/ShopService'
 export default {
     name: "add-shops",
-
+    components: {
+       
+    },
     data(){
       return {
         newHighlights: [],
@@ -123,6 +124,18 @@ export default {
       }
     },
     methods: {
+      openUploadWidget() {
+      const widget = window.cloudinary.createUploadWidget(
+        { cloud_name: "daogd81w1", upload_preset: "upload-jolt" },
+        (error, result) => {
+          if (!error && result && result.event === "success") {
+            let url = String(result.info.secure_url);
+            this.newShop.image = url;
+          }
+        }
+      );
+      widget.open()
+    },
       addNewShop(){
 
         let output = "";
