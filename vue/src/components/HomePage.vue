@@ -144,6 +144,10 @@ export default {
 
 }
 
+h4 {
+  color: #212529;
+}
+
 @media screen and (max-width: 420px) {
   .picture_holder > img {
     display: none;
